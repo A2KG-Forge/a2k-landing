@@ -1,0 +1,63 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [ main ]
+    
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: production
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run pre-deploy checks
+        run: |
+          npx astro check
+          npm run build
+          
+      - name: Run tests
+        run: npm test --if-present
+        
+      # Uncomment and configure based on your deployment target
+      # Example for Netlify:
+      # - name: Deploy to Netlify
+      #   uses: netlify/actions/deploy@main
+      #   with:
+      #     publish-dir: ./dist
+      #     production-branch: main
+      #   env:
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      
+      # Example for Vercel:
+      # - name: Deploy to Vercel
+      #   uses: amondnet/vercel-action@v25
+      #   with:
+      #     vercel-token: ${{ secrets.VERCEL_TOKEN }}
+      #     vercel-org-id: ${{ secrets.ORG_ID }}
+      #     vercel-project-id: ${{ secrets.PROJECT_ID }}
+      #     vercel-args: '--prod'
+      
+      - name: Deployment Success Notification
+        if: success()
+        run: echo "🚀 Deployment successful!"
+        
+      - name: Deployment Failure Notification  
+        if: failure()
+        run: echo "❌ Deployment failed!"

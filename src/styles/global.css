@@ -1,3 +1,6 @@
+/* Tailwind v4 imports */
+@import "tailwindcss";
+
 /*
   The CSS in this style tag is based off of Bear Blog's default CSS.
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
@@ -15,6 +18,12 @@
 	--box-shadow:
 		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
 		rgba(var(--gray), 33%);
+	
+	/* Custom business colors */
+	--deep-grey: #2d3748;
+	--grey: #718096;
+	--marigold: #f6ad55;
+	--pale-marigold: #fef5e7;
 }
 @font-face {
 	font-family: "Atkinson";
@@ -43,11 +52,21 @@ body {
 	font-size: 20px;
 	line-height: 1.7;
 }
+@media (max-width: 720px) {
+	body {
+		font-size: 18px;
+	}
+}
 main {
 	width: 720px;
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 3em 1em;
+}
+@media (max-width: 720px) {
+	main {
+		padding: 1em;
+	}
 }
 h1,
 h2,
@@ -55,24 +74,32 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0 0 0.5rem 0;
+	margin: 1.5rem 0 0.75rem 0;
 	color: rgb(var(--black));
 	line-height: 1.2;
 }
 h1 {
 	font-size: 3.052em;
+	margin-top: 2rem;
 }
 h2 {
 	font-size: 2.441em;
+	margin-top: 2rem;
 }
 h3 {
 	font-size: 1.953em;
+	margin-top: 1.75rem;
 }
 h4 {
 	font-size: 1.563em;
+	margin-top: 1.5rem;
 }
 h5 {
 	font-size: 1.25em;
+	margin-top: 1.25rem;
+}
+h6 {
+	margin-top: 1.25rem;
 }
 strong,
 b {
@@ -87,8 +114,256 @@ a:hover {
 p {
 	margin-bottom: 1em;
 }
+/* Only apply list styles to content areas, not navigation or UI elements */
+article ul,
+article ol,
+.prose ul,
+.prose ol,
+main ul:not(.blog-grid),
+main ol:not(.blog-grid) {
+	margin: 1em 0;
+	padding-left: 2em;
+}
+article ul,
+.prose ul,
+main ul:not(.blog-grid) {
+	list-style-type: disc; /* Solid bullet • */
+}
+article ul ul,
+.prose ul ul,
+main ul:not(.blog-grid) ul {
+	list-style-type: circle; /* Open circle ○ */
+}
+article ul ul ul,
+.prose ul ul ul,
+main ul:not(.blog-grid) ul ul {
+	list-style-type: square; /* Square ■ for third level */
+}
+article ol,
+.prose ol,
+main ol:not(.blog-grid) {
+	list-style-type: decimal;
+}
+article ol ol,
+.prose ol ol,
+main ol:not(.blog-grid) ol {
+	list-style-type: lower-alpha; /* a, b, c */
+}
+article ol ol ol,
+.prose ol ol ol,
+main ol:not(.blog-grid) ol ol {
+	list-style-type: lower-roman; /* i, ii, iii */
+}
+article li,
+.prose li,
+main li:not(.blog-item) {
+	margin-bottom: 0.5em;
+	line-height: 1.6;
+}
+article ul ul,
+article ol ol,
+article ul ol,
+article ol ul,
+.prose ul ul,
+.prose ol ol,
+.prose ul ol,
+.prose ol ul {
+	margin: 0.5em 0;
+}
+/* Custom business colors */
+.text-deep-grey {
+	color: var(--deep-grey);
+}
+.text-grey {
+	color: var(--grey);
+}
+.text-marigold {
+	color: var(--marigold);
+}
+.bg-pale-marigold {
+	background-color: var(--pale-marigold);
+}
+.border-marigold {
+	border-color: var(--marigold);
+}
+.hover\:text-marigold:hover {
+	color: var(--marigold);
+}
+.hover\:bg-pale-marigold:hover {
+	background-color: var(--pale-marigold);
+}
+
+/* Font family for headings */
+.font-heading {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Reset any unwanted list styles */
+.blog-grid,
+.blog-grid li,
+nav ul,
+nav li,
+.social-links,
+.social-links li {
+	list-style: none !important;
+	margin: 0;
+	padding-left: 0;
+}
+
 .prose p {
 	margin-bottom: 2em;
+}
+.prose {
+	max-width: 65ch;
+}
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+	margin-top: 2.5rem;
+	margin-bottom: 1rem;
+}
+.prose h1 {
+	margin-top: 3rem;
+}
+.prose h2 {
+	margin-top: 2.75rem;
+}
+.prose h1:first-child,
+.prose h2:first-child,
+.prose h3:first-child,
+.prose h4:first-child,
+.prose h5:first-child,
+.prose h6:first-child {
+	margin-top: 0;
+}
+.prose * + h1,
+.prose * + h2,
+.prose * + h3,
+.prose * + h4,
+.prose * + h5,
+.prose * + h6 {
+	margin-top: 2.5rem;
+}
+.prose ul,
+.prose ol {
+	margin: 1.5em 0;
+	padding-left: 2em;
+	list-style-position: outside;
+}
+.prose ul {
+	list-style-type: disc; /* Solid bullet • */
+}
+.prose ul ul {
+	list-style-type: circle; /* Open circle ○ */
+}
+.prose ul ul ul {
+	list-style-type: square; /* Square ■ for third level */
+}
+.prose ol {
+	list-style-type: decimal;
+}
+.prose ol ol {
+	list-style-type: lower-alpha; /* a, b, c */
+}
+.prose ol ol ol {
+	list-style-type: lower-roman; /* i, ii, iii */
+}
+.prose li {
+	margin-bottom: 0.75em;
+	line-height: 1.7;
+}
+.prose li p {
+	margin-bottom: 1em;
+}
+.prose ul ul,
+.prose ol ol,
+.prose ul ol,
+.prose ol ul {
+	margin: 0.75em 0;
+}
+.prose li:last-child {
+	margin-bottom: 0;
+}
+.prose table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 2em 0;
+	font-size: 0.9em;
+	box-shadow: 0 2px 8px rgba(var(--gray), 10%);
+	border-radius: 8px;
+	overflow: hidden;
+}
+.prose thead {
+	background-color: rgb(var(--gray-light));
+}
+.prose th,
+.prose td {
+	border: 1px solid rgb(var(--gray-light));
+	padding: 0.75em 1em;
+	text-align: left;
+}
+.prose th {
+	font-weight: bold;
+	background-color: rgb(var(--gray-light));
+	color: rgb(var(--gray-dark));
+	font-size: 0.95em;
+}
+.prose tr:nth-child(even) {
+	background-color: rgba(var(--gray-light), 0.2);
+}
+.prose tr:hover {
+	background-color: rgba(var(--gray-light), 0.4);
+}
+.prose table code {
+	background-color: rgba(var(--gray-light), 0.5);
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 0.85em;
+}
+@media (max-width: 720px) {
+	.prose {
+		max-width: 100%;
+	}
+	.prose h1,
+	.prose h2,
+	.prose h3,
+	.prose h4,
+	.prose h5,
+	.prose h6 {
+		margin-top: 2rem;
+		margin-bottom: 0.75rem;
+	}
+	.prose ul,
+	.prose ol {
+		padding-left: 1.5em;
+		margin: 1.25em 0;
+	}
+	.prose li {
+		margin-bottom: 0.5em;
+	}
+	.prose table {
+		font-size: 0.8em;
+		margin: 1.5em 0;
+	}
+	.prose th,
+	.prose td {
+		padding: 0.5em 0.75em;
+	}
+	.prose table {
+		display: block;
+		overflow-x: auto;
+		white-space: nowrap;
+	}
+	.prose thead,
+	.prose tbody,
+	.prose tr {
+		display: table;
+		width: 100%;
+		table-layout: fixed;
+	}
 }
 textarea {
 	width: 100%;
@@ -99,6 +374,29 @@ input {
 }
 table {
 	width: 100%;
+	border-collapse: collapse;
+	margin: 2em 0;
+	font-size: 0.9em;
+}
+thead {
+	background-color: rgb(var(--gray-light));
+}
+th,
+td {
+	border: 1px solid rgb(var(--gray-light));
+	padding: 0.75em 1em;
+	text-align: left;
+}
+th {
+	font-weight: bold;
+	background-color: rgb(var(--gray-light));
+	color: rgb(var(--gray-dark));
+}
+tr:nth-child(even) {
+	background-color: rgba(var(--gray-light), 0.3);
+}
+tr:hover {
+	background-color: rgba(var(--gray-light), 0.5);
 }
 img {
 	max-width: 100%;
@@ -152,4 +450,12 @@ hr {
 	clip-path: inset(50%);
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+/* Line clamp utility for text truncation */
+.line-clamp-2 {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
