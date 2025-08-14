@@ -1,4 +1,6 @@
 ---
+import { ChevronLeft, ChevronRight } from '@lucide/astro';
+
 interface Props {
   prevUrl?: string;
   nextUrl?: string;
@@ -19,9 +21,7 @@ const { prevUrl, nextUrl, prevTitle = 'Previous Post', nextTitle = 'Next Post' }
       >
         <div class="flex-shrink-0">
           <div class="w-10 h-10 bg-slate-100 group-hover:bg-marigold/20 rounded-lg flex items-center justify-center transition-all duration-300">
-            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" class="text-grey group-hover:text-marigold transition-colors duration-300">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-            </svg>
+            <ChevronLeft size={20} class="text-grey group-hover:text-marigold transition-colors duration-300" />
           </div>
         </div>
         <div class="min-w-0 flex-1">
@@ -64,9 +64,7 @@ const { prevUrl, nextUrl, prevTitle = 'Previous Post', nextTitle = 'Next Post' }
         </div>
         <div class="flex-shrink-0">
           <div class="w-10 h-10 bg-slate-100 group-hover:bg-marigold/20 rounded-lg flex items-center justify-center transition-all duration-300">
-            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" class="text-grey group-hover:text-marigold transition-colors duration-300">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
+            <ChevronRight size={20} class="text-grey group-hover:text-marigold transition-colors duration-300" />
           </div>
         </div>
       </a>
@@ -94,9 +92,7 @@ const { prevUrl, nextUrl, prevTitle = 'Previous Post', nextTitle = 'Next Post' }
     >
       <div class="flex-shrink-0">
         <div class="w-10 h-10 bg-slate-100 group-hover:bg-marigold/20 rounded-lg flex items-center justify-center transition-all duration-300">
-          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" class="text-grey group-hover:text-marigold transition-colors duration-300">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
+          <ChevronLeft size={20} class="text-grey group-hover:text-marigold transition-colors duration-300" />
         </div>
       </div>
       <div class="min-w-0 flex-1">
@@ -122,9 +118,7 @@ const { prevUrl, nextUrl, prevTitle = 'Previous Post', nextTitle = 'Next Post' }
       </div>
       <div class="flex-shrink-0">
         <div class="w-10 h-10 bg-slate-100 group-hover:bg-marigold/20 rounded-lg flex items-center justify-center transition-all duration-300">
-          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" class="text-grey group-hover:text-marigold transition-colors duration-300">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
+          <ChevronRight size={20} class="text-grey group-hover:text-marigold transition-colors duration-300" />
         </div>
       </div>
     </a>
