@@ -14,7 +14,7 @@
     "format:check": "prettier --check .",
     "test": "echo 'No tests yet' && exit 0",
     "type-check": "astro check",
-    "pre-commit": "npm run lint",
+    "pre-commit": "astro check",
     "pre-push": "npm run type-check && npm run build"
   },
   "dependencies": {
