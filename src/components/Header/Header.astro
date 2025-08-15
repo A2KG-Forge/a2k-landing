@@ -1,6 +1,6 @@
 ---
-import { Facebook, Instagram, Youtube } from '@lucide/astro';
 import Logo from './Logo.astro';
+import { Icon } from 'astro-icon/components';
 
 const currentPath = Astro.url.pathname;
 ---
@@ -152,7 +152,11 @@ const currentPath = Astro.url.pathname;
             rel="noopener noreferrer"
             aria-label="Follow us on Facebook"
           >
-            <Facebook size={18} class="group-hover:scale-110 transition-transform duration-200" />
+            <Icon
+              name="mdi:facebook"
+              size={18}
+              class="group-hover:scale-110 transition-transform duration-200"
+            />
           </a>
           <a
             href="https://instagram.com/a2kgrouporg"
@@ -161,7 +165,11 @@ const currentPath = Astro.url.pathname;
             rel="noopener noreferrer"
             aria-label="Follow us on Instagram"
           >
-            <Instagram size={18} class="group-hover:scale-110 transition-transform duration-200" />
+            <Icon
+              name="mdi:instagram"
+              size={18}
+              class="group-hover:scale-110 transition-transform duration-200"
+            />
           </a>
           <a
             href="https://www.youtube.com/@A2KGroup"
@@ -170,7 +178,11 @@ const currentPath = Astro.url.pathname;
             rel="noopener noreferrer"
             aria-label="Subscribe to our YouTube channel"
           >
-            <Youtube size={18} class="group-hover:scale-110 transition-transform duration-200" />
+            <Icon
+              name="mdi:linkedin"
+              size={18}
+              class="group-hover:scale-110 transition-transform duration-200"
+            />
           </a>
           <div class="w-px h-6 bg-slate-300 mx-2"></div>
         </div>
@@ -285,7 +297,11 @@ const currentPath = Astro.url.pathname;
             rel="noopener noreferrer"
             aria-label="Follow us on Facebook"
           >
-            <Facebook size={20} />
+            <Icon
+              name="mdi:facebook"
+              size={18}
+              class="group-hover:scale-110 transition-transform duration-200"
+            />
           </a>
           <a
             href="https://instagram.com/a2kgrouporg"
@@ -294,7 +310,11 @@ const currentPath = Astro.url.pathname;
             rel="noopener noreferrer"
             aria-label="Follow us on Instagram"
           >
-            <Instagram size={20} />
+            <Icon
+              name="mdi:instagram"
+              size={18}
+              class="group-hover:scale-110 transition-transform duration-200"
+            />
           </a>
           <a
             href="https://www.youtube.com/@A2KGroup"
@@ -303,7 +323,11 @@ const currentPath = Astro.url.pathname;
             rel="noopener noreferrer"
             aria-label="Subscribe to our YouTube channel"
           >
-            <Youtube size={20} />
+            <Icon
+              name="mdi:linkedin"
+              size={18}
+              class="group-hover:scale-110 transition-transform duration-200"
+            />
           </a>
         </div>
       </div>

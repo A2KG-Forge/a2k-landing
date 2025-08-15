@@ -9,10 +9,21 @@ import react from '@astrojs/react';
 
 import tailwindcss from '@tailwindcss/vite';
 
+import astroIcon from 'astro-icon';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
-  integrations: [mdx(), sitemap(), react()],
+  integrations: [
+    mdx(),
+    sitemap(),
+    react(),
+    astroIcon({
+      include: {
+        mdi: ['*'], // all Material Design Icons
+      },
+    }),
+  ],
 
   vite: {
     plugins: [tailwindcss()],
