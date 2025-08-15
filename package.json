@@ -15,7 +15,7 @@
     "test": "echo 'No tests yet' && exit 0",
     "type-check": "astro check",
     "pre-commit": "npm run format:check && npm run type-check",
-    "pre-push": "astro check && npm run build",
+    "pre-push": "npm run build",
     "ci:validate": "npm run type-check && npm run format:check && npm run build"
   },
   "dependencies": {
