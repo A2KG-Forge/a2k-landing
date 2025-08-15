@@ -15,16 +15,12 @@ const sortedNews = newsItems.sort((a, b) => b.data.pubDate.getTime() - a.data.pu
         sortedNews.slice(0, 4).map(item => (
           <div class="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors cursor-pointer">
             <a href={`/blog/${item.id}`} class="block">
-              {typeof item.data.heroImage === 'string' ? (
-                <img
-                  src={item.data.heroImage}
-                  alt={item.data.title}
-                  class="w-full h-48 object-cover"
-                />
-              ) : item.data.heroImage ? (
+              {item.data.heroImage ? (
                 <Image
                   src={item.data.heroImage}
                   alt={item.data.title}
+                  width={400}
+                  height={192}
                   class="w-full h-48 object-cover"
                 />
               ) : (
