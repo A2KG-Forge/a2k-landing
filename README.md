@@ -1,6 +1,8 @@
 # Reforge A2K Landing Page
 
-A modern, performant landing page built with Astro, featuring a blog system, news panels, and optimized for collaboration. This project serves as the main website for Reforge A2K with integrated content management and CI/CD workflows.
+A modern, performant landing page built with Astro, featuring a blog system,
+news panels, and optimized for collaboration. This project serves as the main
+website for Reforge A2K with integrated content management and CI/CD workflows.
 
 ## ✨ Features
 
@@ -58,38 +60,42 @@ reforge-a2k/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd reforge-a2k
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start development server**
+
    ```bash
    npm run dev
    ```
 
-4. **Open your browser**
-   Navigate to `http://localhost:4321`
+4. **Open your browser** Navigate to `http://localhost:4321`
 
 ## 📋 Available Commands
 
-| Command | Action |
-|---------|--------|
-| `npm run dev` | Start development server at `localhost:4321` |
-| `npm run build` | Build production site to `./dist/` |
-| `npm run preview` | Preview production build locally |
-| `npm run format` | Format code with Prettier |
-| `npm run format:check` | Check code formatting |
-| `npm run type-check` | Run TypeScript type checking |
-| `npm run lint` | Run Astro linting |
-| `npm run pre-commit` | Run pre-commit checks (format code + type check) |
-| `npm run pre-push` | Run pre-push checks (includes build) |
-| `npm test` | Run tests (placeholder for future implementation) |
+| Command                | Action                                             |
+| ---------------------- | -------------------------------------------------- |
+| `npm run dev`          | Start development server at `localhost:4321`       |
+| `npm run build`        | Build production site to `./dist/`                 |
+| `npm run preview`      | Preview production build locally                   |
+| `npm run format`       | Format code with Prettier                          |
+| `npm run format:check` | Check code formatting                              |
+| `npm run type-check`   | Run TypeScript type checking                       |
+| `npm run lint`         | Run ESLint on all files                            |
+| `npm run lint:fix`     | Run ESLint and automatically fix issues            |
+| `npm run lint:astro`   | Run Astro-specific type checking                   |
+| `npm run pre-commit`   | Run pre-commit checks (format + lint + type check) |
+| `npm run pre-push`     | Run pre-push checks (includes build)               |
+| `npm test`             | Run tests (placeholder for future implementation)  |
 
 ## 👥 Collaboration Guidelines
 
@@ -104,17 +110,20 @@ reforge-a2k/
 ### Development Workflow
 
 1. **Create a new branch** from `main`
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
 
 2. **Make your changes** and commit regularly
+
    ```bash
    git add .
    git commit -m "feat: add new feature"
    ```
 
 3. **Run quality checks** before pushing
+
    ```bash
    npm run pre-commit
    ```
@@ -140,15 +149,16 @@ Use conventional commits for clear history:
 
 ### Blog Posts
 
-Blog posts are stored in `src/content/blog/` and use the following frontmatter schema:
+Blog posts are stored in `src/content/blog/` and use the following frontmatter
+schema:
 
 ```markdown
 ---
-title: "Your Post Title"           # Required: Post title
-description: "Brief description"    # Required: Meta description
-pubDate: "2024-01-15"              # Required: Publication date (YYYY-MM-DD)
-updatedDate: "2024-01-20"          # Optional: Last update date
-heroImage: "../../assets/hero.jpg" # Optional: Featured image
+title: 'Your Post Title' # Required: Post title
+description: 'Brief description' # Required: Meta description
+pubDate: '2024-01-15' # Required: Publication date (YYYY-MM-DD)
+updatedDate: '2024-01-20' # Optional: Last update date
+heroImage: '../../assets/hero.jpg' # Optional: Featured image
 ---
 
 Your content goes here...
@@ -157,18 +167,21 @@ Your content goes here...
 ### Content Guidelines
 
 #### Writing Style
+
 - Use clear, concise language
 - Write engaging headlines
 - Include relevant images with alt text
 - Use proper markdown formatting
 
 #### Image Optimization
+
 - Store images in `src/assets/` for optimization
 - Use descriptive filenames
 - Prefer WebP format when possible
 - Include alt text for accessibility
 
 #### SEO Best Practices
+
 - Write descriptive titles (50-60 characters)
 - Create compelling descriptions (150-160 characters)
 - Use heading hierarchy (H1 → H2 → H3)
@@ -177,6 +190,7 @@ Your content goes here...
 ### Creating New Blog Posts
 
 1. **Create a new file** in `src/content/blog/`
+
    ```bash
    touch src/content/blog/my-new-post.md
    ```
@@ -205,6 +219,7 @@ The project uses Prettier with these settings (`.prettierrc.json`):
 ```
 
 ### Special Rules
+
 - **Astro files**: Auto-formatted with `prettier-plugin-astro`
 - **Markdown files**: 80 character line width with prose wrapping
 - **TypeScript/JavaScript**: 100 character line width
@@ -228,6 +243,135 @@ npx prettier --write src/components/Header.astro
 2. Enable **"Format on Save"** in settings
 3. Set Prettier as default formatter
 
+### Pre-commit Formatting Workflow
+
+To avoid formatting-related commit failures, follow this workflow:
+
+1. **Format before committing**:
+
+   ```bash
+   npm run format
+   git add .
+   git commit -m "feat: your changes"
+   ```
+
+2. **Or use the integrated workflow**:
+
+   ```bash
+   # This checks formatting and types before committing
+   npm run pre-commit
+
+   # If it passes, commit your changes
+   git commit -m "feat: your changes"
+   ```
+
+**Note**: The pre-commit hook uses `format:check` (not `format`) to avoid the
+issue where Prettier modifies files during the commit process without re-staging
+them. Always format your code before committing!
+
+## 🔍 Code Quality with ESLint
+
+### ESLint Configuration
+
+The project uses ESLint with a comprehensive configuration that includes:
+
+- **TypeScript support** with `typescript-eslint`
+- **React rules** for JSX components
+- **Astro-specific rules** for `.astro` files
+- **Accessibility rules** with `jsx-a11y`
+- **React Hooks rules** for proper hook usage
+
+### ESLint Rules Overview
+
+#### Core Rules
+
+- No unused variables (with underscore prefix exception)
+- Prefer const over let
+- No var declarations
+- Object shorthand syntax
+- Template literals over string concatenation
+
+#### React Rules
+
+- No React import needed (React 17+)
+- Proper hook usage and dependencies
+- JSX accessibility checks
+
+#### TypeScript Rules
+
+- Warn on explicit `any` usage
+- Strict unused variable checking
+- Type-safe coding patterns
+
+### Linting Commands
+
+```bash
+# Lint all files
+npm run lint
+
+# Auto-fix linting issues
+npm run lint:fix
+
+# Lint specific file
+npx eslint src/components/Header.astro
+
+# Lint with specific file extensions
+npx eslint . --ext .js,.ts,.tsx,.astro
+```
+
+### VS Code ESLint Integration
+
+1. Install the **ESLint extension**
+2. Enable auto-fix on save:
+   ```json
+   {
+     "eslint.validate": ["astro", "typescript", "typescriptreact"],
+     "editor.codeActionsOnSave": {
+       "source.fixAll.eslint": true
+     }
+   }
+   ```
+
+### Common ESLint Fixes
+
+```bash
+# Fix accessibility issues (empty href attributes)
+# Replace href="#" with href="/actual-link" or use <button>
+
+# Fix unused variables
+# Add underscore prefix: const _unusedVar = value;
+
+# Fix object shorthand
+# Replace { name: name } with { name }
+```
+
+### Prettier Issues on Windows
+
+**Problem**: Prettier keeps failing even after formatting **Root Cause**: Line
+ending conflicts between Windows (CRLF) and Unix (LF)
+
+**Solutions Applied**:
+
+1. ✅ **Updated Prettier config**: Changed `"endOfLine": "lf"` to
+   `"endOfLine": "auto"`
+2. ✅ **Fixed Git config**: Set `core.autocrlf=false` to prevent automatic line
+   ending conversion
+3. ✅ **Added .gitattributes**: Ensures consistent line endings across team
+   members
+4. ✅ **VS Code settings**: Auto-format on save with consistent line endings
+
+**Quick Fix Commands**:
+
+```bash
+# Fix line ending issues
+git config core.autocrlf false
+npm run format
+
+# If still having issues, normalize line endings
+git add --renormalize .
+git commit -m "Normalize line endings"
+```
+
 ## 🔧 Troubleshooting & Error Handling
 
 ### Common Issues and Solutions
@@ -237,6 +381,7 @@ npx prettier --write src/components/Header.astro
 **Error**: `husky - pre-commit script failed (code 1)`
 
 **Solutions**:
+
 ```bash
 # The pre-commit hook now automatically formats code,
 # but may fail on type checking issues
@@ -256,6 +401,7 @@ npm run format
 **Error**: Type checking failures
 
 **Solutions**:
+
 ```bash
 # Run type checking
 npm run type-check
@@ -274,6 +420,7 @@ npx astro check
 **Error**: Build process fails
 
 **Debugging steps**:
+
 ```bash
 # Clean build and reinstall
 rm -rf dist/ node_modules/
@@ -292,6 +439,7 @@ npm run type-check
 **Error**: Content schema validation failures
 
 **Solutions**:
+
 - Check frontmatter matches schema in `src/content.config.ts`
 - Ensure required fields are present
 - Validate date formats (`YYYY-MM-DD` or `MMM DD YYYY`)
@@ -302,6 +450,7 @@ npm run type-check
 **Error**: Lighthouse CI configuration problems
 
 **Solutions**:
+
 - Ensure `.lighthouserc.cjs` exists (not `.js`)
 - Check server starts correctly for preview
 - Verify all URLs are accessible
@@ -310,12 +459,14 @@ npm run type-check
 ### Development Tips
 
 #### Performance Optimization
+
 - Use Astro's built-in image optimization
 - Minimize client-side JavaScript
 - Leverage static site generation
 - Monitor Core Web Vitals
 
 #### Debugging Tools
+
 ```bash
 # Astro development server with debug info
 DEBUG=astro:* npm run dev
@@ -328,6 +479,7 @@ npm run build -- --verbose
 ```
 
 #### Git Workflow Tips
+
 ```bash
 # Stash changes before switching branches
 git stash
@@ -350,6 +502,7 @@ The project uses GitHub Actions for automated deployment:
 3. **Build artifacts** are automatically generated and stored
 
 For manual deployment:
+
 ```bash
 npm run build
 # Deploy contents of dist/ folder
@@ -364,6 +517,7 @@ npm run build
 5. **Submit a Pull Request**
 
 Please ensure:
+
 - [ ] Code follows project formatting standards
 - [ ] TypeScript types are properly defined
 - [ ] Tests pass (when implemented)
