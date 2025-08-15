@@ -19,7 +19,7 @@ const slides: Slide[] = [
     title: 'WELCOME TO A2K GROUP',
     subtitle: '',
     description:
-      'Our international team of mentors and experts stands ready to collaborate with you in crafting tailored digital solutions that cater to your unique needs. Together, we can unlock the potential of digitalization, extending its benefits to your people, processes, and platforms.',
+      'Our team of experts crafts tailored digital solutions that unlock the potential of digitalization for your people, processes, and platforms.',
     backgroundImage:
       'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80',
     buttons: [
@@ -33,7 +33,7 @@ const slides: Slide[] = [
     title: 'TRANSFORMING SERVICES',
     subtitle: 'THROUGH DIGITALIZATION',
     description:
-      "We specialize in developing innovative digital solutions that transform traditional business processes. Our expertise spans across mobile applications, web platforms, and enterprise systems designed to meet your organization's unique requirements.",
+      "We develop innovative solutions that transform business processes across mobile, web, and enterprise systems.",
     backgroundImage:
       'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
     buttons: [
@@ -46,7 +46,7 @@ const slides: Slide[] = [
     title: 'INNOVATION & EXCELLENCE',
     subtitle: 'IN EVERY PROJECT',
     description:
-      'From internship programs to seed funding opportunities, we provide comprehensive support for digital innovation. Our three specialized divisions - ANGAD, ANGAT, and KASAMA - work together to deliver exceptional results.',
+      'From internships to funding, we provide comprehensive digital innovation support through our specialized divisions.',
     backgroundImage:
       'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80',
     buttons: [
@@ -101,51 +101,51 @@ export default function HeroSlider() {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${slide.backgroundImage})` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
         </div>
       ))}
 
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-6 lg:left-12 top-1/2 transform -translate-y-1/2 text-white/80 hover:text-white z-20 transition-all duration-300 hover:scale-110 bg-white/10 backdrop-blur-sm rounded-full p-3 border border-white/20"
+        className="absolute left-2 sm:left-6 lg:left-12 top-1/2 transform -translate-y-1/2 text-white hover:text-[#f6ad55] z-20 transition-all duration-300 hover:scale-110 bg-black/40 backdrop-blur-sm rounded-full p-2 sm:p-3 border border-white/30 hover:border-[#f6ad55]/50 hover:bg-black/60"
         aria-label="Previous slide"
       >
-        <ChevronLeft size={28} />
+        <ChevronLeft size={24} className="sm:w-7 sm:h-7" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-6 lg:right-12 top-1/2 transform -translate-y-1/2 text-white/80 hover:text-white z-20 transition-all duration-300 hover:scale-110 bg-white/10 backdrop-blur-sm rounded-full p-3 border border-white/20"
+        className="absolute right-2 sm:right-6 lg:right-12 top-1/2 transform -translate-y-1/2 text-white hover:text-[#f6ad55] z-20 transition-all duration-300 hover:scale-110 bg-black/40 backdrop-blur-sm rounded-full p-2 sm:p-3 border border-white/30 hover:border-[#f6ad55]/50 hover:bg-black/60"
         aria-label="Next slide"
       >
-        <ChevronRight size={28} />
+        <ChevronRight size={24} className="sm:w-7 sm:h-7" />
       </button>
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center h-full">
-        <div className="text-center text-white max-w-5xl mx-auto px-6">
-          <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-6 transition-all duration-700 tracking-tight leading-tight">
+        <div className="text-center text-white max-w-5xl mx-auto px-4 sm:px-6 pb-20 sm:pb-12">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 transition-all duration-700 tracking-tight leading-tight">
             {currentSlideData.title}
           </h1>
           {currentSlideData.subtitle && (
-            <h2 className="font-heading text-2xl md:text-4xl lg:text-5xl font-semibold mb-8 transition-all duration-700 text-slate-200 tracking-tight">
+            <h2 className="font-heading text-xl sm:text-2xl md:text-4xl lg:text-5xl font-semibold mb-6 sm:mb-8 transition-all duration-700 text-slate-200 tracking-tight">
               {currentSlideData.subtitle}
             </h2>
           )}
 
-          <p className="font-body text-lg md:text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed transition-all duration-700 text-slate-100 font-light">
+          <p className="font-body text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed transition-all duration-700 text-slate-100 font-light">
             {currentSlideData.description}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             {currentSlideData.buttons.map((button, index) => (
               <a
                 key={index}
                 href={button.href}
-                className={`px-8 py-4 font-semibold tracking-wide transition-all duration-300 rounded-lg backdrop-blur-sm border-2 shadow-lg hover:shadow-xl ${
+                className={`w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 font-semibold tracking-wide transition-all duration-300 rounded-lg border-2 shadow-lg hover:shadow-xl transform hover:scale-105 text-center ${
                   index === 0
-                    ? 'bg-orange-500 border-orange-500 text-white hover:bg-orange-600 hover:border-orange-600 hover:scale-105'
-                    : 'border-white text-white hover:bg-white hover:text-slate-900 hover:border-white hover:scale-105'
+                    ? 'bg-[#f6ad55] border-[#f6ad55] text-black hover:bg-[#ed8936] hover:border-[#ed8936] hover:shadow-[#f6ad55]/30'
+                    : 'bg-zinc-900 border-zinc-700 text-white hover:bg-zinc-800 hover:border-zinc-600 hover:shadow-zinc-900/30'
                 }`}
               >
                 {button.text}
@@ -156,13 +156,15 @@ export default function HeroSlider() {
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-20">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              index === currentSlide ? 'bg-white w-8' : 'bg-white/40 hover:bg-white/60 w-2'
+            className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
+              index === currentSlide 
+                ? 'bg-[#f6ad55] w-6 sm:w-8 shadow-lg shadow-[#f6ad55]/30' 
+                : 'bg-white/50 hover:bg-[#f6ad55]/70 w-1.5 sm:w-2'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -170,13 +172,13 @@ export default function HeroSlider() {
       </div>
 
       {/* Auto-play indicator */}
-      <div className="absolute top-8 right-8 z-20">
+      <div className="absolute top-4 sm:top-8 right-2 sm:right-8 z-20">
         <button
           onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-          className={`px-4 py-2 text-sm font-medium rounded-full backdrop-blur-sm border transition-all duration-300 ${
+          className={`px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-full backdrop-blur-sm border transition-all duration-300 ${
             isAutoPlaying
-              ? 'bg-orange-500/30 border-orange-400/50 text-white'
-              : 'bg-white/20 border-white/30 text-white hover:bg-white/30'
+              ? 'bg-[#f6ad55]/30 border-[#f6ad55]/50 text-white'
+              : 'bg-black/40 border-white/30 text-white hover:bg-black/60 hover:border-[#f6ad55]/50'
           }`}
         >
           {isAutoPlaying ? '● AUTO' : '○ MANUAL'}
