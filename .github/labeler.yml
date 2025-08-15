@@ -1,74 +1,72 @@
-# Configuration for GitHub PR labeler
+# Configuration for GitHub PR labeler v5
 # https://github.com/actions/labeler
 
 # Label PRs that modify documentation
 documentation:
-  - '**/*.md'
-  - '**/*.mdx'
-  - 'README*'
+  - changed-files:
+      - any-glob-to-any-file: ['**/*.md', '**/*.mdx', 'README*']
 
 # Label PRs that modify styles
 styles:
-  - '**/*.css'
-  - '**/*.scss'
-  - '**/*.sass'
-  - '**/styles/**'
-  - 'src/styles/**'
+  - changed-files:
+      - any-glob-to-any-file:
+          ['**/*.css', '**/*.scss', '**/*.sass', '**/styles/**', 'src/styles/**']
 
 # Label PRs that modify components
 components:
-  - 'src/components/**'
-  - '**/*.astro'
+  - changed-files:
+      - any-glob-to-any-file: ['src/components/**', '**/*.astro']
 
 # Label PRs that modify layouts
 layouts:
-  - 'src/layouts/**'
+  - changed-files:
+      - any-glob-to-any-file: ['src/layouts/**']
 
 # Label PRs that modify pages
 pages:
-  - 'src/pages/**'
+  - changed-files:
+      - any-glob-to-any-file: ['src/pages/**']
 
 # Label PRs that modify content
 content:
-  - 'src/content/**'
+  - changed-files:
+      - any-glob-to-any-file: ['src/content/**']
 
 # Label PRs that modify configuration
 config:
-  - '*.config.*'
-  - '*.json'
-  - '*.yml'
-  - '*.yaml'
-  - '.github/**'
-  - 'package.json'
-  - 'tsconfig.json'
+  - changed-files:
+      - any-glob-to-any-file:
+          ['*.config.*', '*.json', '*.yml', '*.yaml', '.github/**', 'package.json', 'tsconfig.json']
 
 # Label PRs that modify dependencies
 dependencies:
-  - 'package.json'
-  - 'package-lock.json'
-  - 'yarn.lock'
-  - 'pnpm-lock.yaml'
+  - changed-files:
+      - any-glob-to-any-file: ['package.json', 'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml']
 
 # Label PRs that modify CI/CD
-ci/cd:
-  - '.github/workflows/**'
-  - '.husky/**'
+'ci/cd':
+  - changed-files:
+      - any-glob-to-any-file: ['.github/workflows/**', '.husky/**']
 
 # Label PRs that modify assets
 assets:
-  - 'src/assets/**'
-  - 'public/**'
-  - '**/*.jpg'
-  - '**/*.jpeg'
-  - '**/*.png'
-  - '**/*.svg'
-  - '**/*.gif'
-  - '**/*.webp'
+  - changed-files:
+      - any-glob-to-any-file:
+          [
+            'src/assets/**',
+            'public/**',
+            '**/*.jpg',
+            '**/*.jpeg',
+            '**/*.png',
+            '**/*.svg',
+            '**/*.gif',
+            '**/*.webp',
+          ]
 
 # Label PRs that are bug fixes
 bug:
-  - head-branch: ['/fix/', '/hotfix/']
+  - head-branch: ['^fix/', '^hotfix/']
 
-# Label PRs that are new features  
+# Label PRs that are new features
 feature:
-  - head-branch: ['/feature/', '/feat/']
+  - head-branch: ['^feature/', '^feat/']

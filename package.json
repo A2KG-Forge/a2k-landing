@@ -14,8 +14,9 @@
     "format:check": "prettier --check .",
     "test": "echo 'No tests yet' && exit 0",
     "type-check": "astro check",
-    "pre-commit": "npm run lint",
-    "pre-push": "npm run type-check && npm run build"
+    "pre-commit": "npm run format:check && npm run type-check",
+    "pre-push": "npm run build",
+    "ci:validate": "npm run type-check && npm run format:check && npm run build"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

@@ -22,42 +22,52 @@ const { title, description, pubDate, updatedDate, heroImage, prevPost, nextPost 
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-	</head>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
 
-	<body>
-		<Header />
-		<main class="w-full max-w-full m-0">
-			<article>
-				<div class="hero-image w-full">
-					{heroImage && <Image width={1600} height={800} src={heroImage} alt="" class="block mx-auto rounded-xl shadow-lg w-full max-w-7xl" />}
-				</div>
-				<div class="prose w-full max-w-3xl mx-auto p-4 text-[rgb(var(--gray-dark))]">
-					<div class="title mb-4 py-4 text-center leading-none">
-						<div class="date mb-2 text-[rgb(var(--gray))]">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on italic">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1 class="m-0 mb-2">{title}</h1>
-						<hr />
-					</div>
-					<slot />
-				</div>
-			</article>
-			<Pagination 
-				prevUrl={prevPost?.url}
-				nextUrl={nextPost?.url}
-				prevTitle={prevPost?.title}
-				nextTitle={nextPost?.title}
-			/>
-		</main>
-		<Footer />
-	</body>
+  <body>
+    <Header />
+    <main class="w-full max-w-full m-0">
+      <article>
+        <div class="hero-image w-full">
+          {
+            heroImage && (
+              <Image
+                width={1600}
+                height={800}
+                src={heroImage}
+                alt=""
+                class="block mx-auto rounded-xl shadow-lg w-full max-w-7xl"
+              />
+            )
+          }
+        </div>
+        <div class="prose w-full max-w-3xl mx-auto p-4 text-[rgb(var(--gray-dark))]">
+          <div class="title mb-4 py-4 text-center leading-none">
+            <div class="date mb-2 text-[rgb(var(--gray))]">
+              <FormattedDate date={pubDate} />
+              {
+                updatedDate && (
+                  <div class="last-updated-on italic">
+                    Last updated on <FormattedDate date={updatedDate} />
+                  </div>
+                )
+              }
+            </div>
+            <h1 class="m-0 mb-2">{title}</h1>
+            <hr />
+          </div>
+          <slot />
+        </div>
+      </article>
+      <Pagination
+        prevUrl={prevPost?.url}
+        nextUrl={nextPost?.url}
+        prevTitle={prevPost?.title}
+        nextTitle={nextPost?.title}
+      />
+    </main>
+    <Footer />
+  </body>
 </html>
