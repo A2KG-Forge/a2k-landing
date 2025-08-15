@@ -8,8 +8,8 @@
  */
 
 :root {
-  --accent: #2337ff;
-  --accent-dark: #000d8a;
+  --accent: #ffffff;
+  --accent-dark: #181818;
   --black: 15, 18, 25;
   --gray: 96, 115, 159;
   --gray-light: 229, 233, 240;
@@ -104,12 +104,7 @@ strong,
 b {
   font-weight: 700;
 }
-a {
-  color: var(--accent);
-}
-a:hover {
-  color: var(--accent);
-}
+
 p {
   margin-bottom: 1em;
 }
