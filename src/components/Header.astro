@@ -4,7 +4,9 @@ import { Facebook, Instagram, Youtube } from '@lucide/astro';
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="bg-white/95 backdrop-blur-xl shadow-xl sticky top-0 z-50 border-b border-slate-200/30 transition-all duration-300">
+<header
+  class="bg-white/95 backdrop-blur-xl shadow-xl sticky top-0 z-50 border-b border-slate-200/30 transition-all duration-300"
+>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center py-3 lg:py-4">
       <!-- Logo/Home Button -->
@@ -16,13 +18,20 @@ const currentPath = Astro.url.pathname;
               alt="A2K Group Logo"
               class="h-10 w-10 lg:h-12 lg:w-12 mr-3 drop-shadow-sm group-hover:drop-shadow-lg transition-all duration-300 group-hover:scale-105"
             />
-            <div class="absolute inset-0 bg-gradient-to-r from-marigold/20 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-marigold/20 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+            </div>
           </div>
           <div class="font-heading">
-            <div class="text-2xl lg:text-3xl font-bold text-deep-grey tracking-tight group-hover:text-marigold transition-colors duration-300">
+            <div
+              class="text-2xl lg:text-3xl font-bold text-deep-grey tracking-tight group-hover:text-marigold transition-colors duration-300"
+            >
               A2K
             </div>
-            <div class="text-xs lg:text-sm text-grey tracking-widest font-semibold -mt-1 group-hover:text-deep-grey transition-colors duration-300">
+            <div
+              class="text-xs lg:text-sm text-grey tracking-widest font-semibold -mt-1 group-hover:text-deep-grey transition-colors duration-300"
+            >
               GROUP
             </div>
           </div>
@@ -32,20 +41,39 @@ const currentPath = Astro.url.pathname;
       <!-- Navigation -->
       <nav class="hidden md:flex space-x-1 lg:space-x-2">
         <div class="relative group">
-          <button class="text-deep-grey hover:text-marigold px-3 lg:px-4 py-2 lg:py-3 text-sm font-medium flex items-center rounded-lg hover:bg-pale-marigold/80 transition-all duration-200 border border-transparent hover:border-marigold/20">
+          <button
+            class="text-deep-grey hover:text-marigold px-3 lg:px-4 py-2 lg:py-3 text-sm font-medium flex items-center rounded-lg hover:bg-pale-marigold/80 transition-all duration-200 border border-transparent hover:border-marigold/20"
+          >
             ABOUT US
-            <svg class="ml-2 h-3 w-3 lg:h-4 lg:w-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            <svg
+              class="ml-2 h-3 w-3 lg:h-4 lg:w-4 transition-transform duration-200 group-hover:rotate-180"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
           <!-- About Us Dropdown Menu -->
-          <div class="absolute left-0 mt-2 w-56 bg-white/95 backdrop-blur-lg border border-slate-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+          <div
+            class="absolute left-0 mt-2 w-56 bg-white/95 backdrop-blur-lg border border-slate-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50"
+          >
             <div class="py-2">
-              <a href="/our-story" class="block px-4 py-3 text-sm text-deep-grey hover:bg-pale-marigold/60 hover:text-marigold transition-all duration-200 first:rounded-t-xl border-l-4 border-transparent hover:border-marigold">
+              <a
+                href="/our-story"
+                class="block px-4 py-3 text-sm text-deep-grey hover:bg-pale-marigold/60 hover:text-marigold transition-all duration-200 first:rounded-t-xl border-l-4 border-transparent hover:border-marigold"
+              >
                 <div class="font-medium">Our Story</div>
                 <div class="text-xs text-grey mt-1">Learn about our journey</div>
               </a>
-              <a href="/management-board" class="block px-4 py-3 text-sm text-deep-grey hover:bg-pale-marigold/60 hover:text-marigold transition-all duration-200 last:rounded-b-xl border-l-4 border-transparent hover:border-marigold">
+              <a
+                href="/management-board"
+                class="block px-4 py-3 text-sm text-deep-grey hover:bg-pale-marigold/60 hover:text-marigold transition-all duration-200 last:rounded-b-xl border-l-4 border-transparent hover:border-marigold"
+              >
                 <div class="font-medium">Management Board</div>
                 <div class="text-xs text-grey mt-1">Meet our leadership team</div>
               </a>
@@ -53,49 +81,89 @@ const currentPath = Astro.url.pathname;
           </div>
         </div>
         <div class="relative group">
-          <button class="text-deep-grey hover:text-marigold px-3 lg:px-4 py-2 lg:py-3 text-sm font-medium flex items-center rounded-lg hover:bg-pale-marigold/80 transition-all duration-200 border border-transparent hover:border-marigold/20">
+          <button
+            class="text-deep-grey hover:text-marigold px-3 lg:px-4 py-2 lg:py-3 text-sm font-medium flex items-center rounded-lg hover:bg-pale-marigold/80 transition-all duration-200 border border-transparent hover:border-marigold/20"
+          >
             SERVICES
-            <svg class="ml-2 h-3 w-3 lg:h-4 lg:w-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            <svg
+              class="ml-2 h-3 w-3 lg:h-4 lg:w-4 transition-transform duration-200 group-hover:rotate-180"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
           <!-- Services Dropdown Menu -->
-          <div class="absolute left-0 mt-2 w-64 bg-white/95 backdrop-blur-lg border border-slate-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+          <div
+            class="absolute left-0 mt-2 w-64 bg-white/95 backdrop-blur-lg border border-slate-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50"
+          >
             <div class="py-2">
-              <a href="#services" class="block px-4 py-3 text-sm text-deep-grey hover:bg-pale-marigold/60 hover:text-marigold transition-all duration-200 first:rounded-t-xl border-l-4 border-transparent hover:border-marigold">
+              <a
+                href="#services"
+                class="block px-4 py-3 text-sm text-deep-grey hover:bg-pale-marigold/60 hover:text-marigold transition-all duration-200 first:rounded-t-xl border-l-4 border-transparent hover:border-marigold"
+              >
                 <div class="font-medium">Learn with Us</div>
                 <div class="text-xs text-grey mt-1">Educational programs</div>
               </a>
-              <a href="#expertise-support" class="block px-4 py-3 text-sm text-deep-grey hover:bg-pale-marigold/60 hover:text-marigold transition-all duration-200 border-l-4 border-transparent hover:border-marigold">
+              <a
+                href="#expertise-support"
+                class="block px-4 py-3 text-sm text-deep-grey hover:bg-pale-marigold/60 hover:text-marigold transition-all duration-200 border-l-4 border-transparent hover:border-marigold"
+              >
                 <div class="font-medium">Key Services</div>
                 <div class="text-xs text-grey mt-1">Our core offerings</div>
               </a>
             </div>
           </div>
         </div>
-        <a href="/academy" class={`px-3 lg:px-4 py-2 lg:py-3 text-sm font-medium transition-all duration-200 rounded-lg border border-transparent relative overflow-hidden ${
-          currentPath === '/academy'
-            ? 'text-marigold bg-pale-marigold/80 border-marigold/30 shadow-md'
-            : 'text-deep-grey hover:text-marigold hover:bg-pale-marigold/60 hover:border-marigold/20'
-        }`}>
+        <a
+          href="/academy"
+          class={`px-3 lg:px-4 py-2 lg:py-3 text-sm font-medium transition-all duration-200 rounded-lg border border-transparent relative overflow-hidden ${
+            currentPath === '/academy'
+              ? 'text-marigold bg-pale-marigold/80 border-marigold/30 shadow-md'
+              : 'text-deep-grey hover:text-marigold hover:bg-pale-marigold/60 hover:border-marigold/20'
+          }`}
+        >
           <span class="relative z-10">ACADEMY</span>
-          {currentPath === '/academy' && <div class="absolute inset-0 bg-gradient-to-r from-marigold/10 to-transparent"></div>}
+          {
+            currentPath === '/academy' && (
+              <div class="absolute inset-0 bg-gradient-to-r from-marigold/10 to-transparent" />
+            )
+          }
         </a>
-        <a href="/blog" class={`px-3 lg:px-4 py-2 lg:py-3 text-sm font-medium transition-all duration-200 rounded-lg border border-transparent relative overflow-hidden ${
-          currentPath.startsWith('/blog') || currentPath.startsWith('/news')
-            ? 'text-marigold bg-pale-marigold/80 border-marigold/30 shadow-md'
-            : 'text-deep-grey hover:text-marigold hover:bg-pale-marigold/60 hover:border-marigold/20'
-        }`}>
+        <a
+          href="/blog"
+          class={`px-3 lg:px-4 py-2 lg:py-3 text-sm font-medium transition-all duration-200 rounded-lg border border-transparent relative overflow-hidden ${
+            currentPath.startsWith('/blog') || currentPath.startsWith('/news')
+              ? 'text-marigold bg-pale-marigold/80 border-marigold/30 shadow-md'
+              : 'text-deep-grey hover:text-marigold hover:bg-pale-marigold/60 hover:border-marigold/20'
+          }`}
+        >
           <span class="relative z-10">NEWS</span>
-          {(currentPath.startsWith('/blog') || currentPath.startsWith('/news')) && <div class="absolute inset-0 bg-gradient-to-r from-marigold/10 to-transparent"></div>}
+          {
+            (currentPath.startsWith('/blog') || currentPath.startsWith('/news')) && (
+              <div class="absolute inset-0 bg-gradient-to-r from-marigold/10 to-transparent" />
+            )
+          }
         </a>
-        <a href="/contact" class={`px-3 lg:px-4 py-2 lg:py-3 text-sm font-medium transition-all duration-200 rounded-lg border border-transparent relative overflow-hidden ${
-          currentPath === '/contact'
-            ? 'text-marigold bg-pale-marigold/80 border-marigold/30 shadow-md'
-            : 'text-deep-grey hover:text-marigold hover:bg-pale-marigold/60 hover:border-marigold/20'
-        }`}>
+        <a
+          href="/contact"
+          class={`px-3 lg:px-4 py-2 lg:py-3 text-sm font-medium transition-all duration-200 rounded-lg border border-transparent relative overflow-hidden ${
+            currentPath === '/contact'
+              ? 'text-marigold bg-pale-marigold/80 border-marigold/30 shadow-md'
+              : 'text-deep-grey hover:text-marigold hover:bg-pale-marigold/60 hover:border-marigold/20'
+          }`}
+        >
           <span class="relative z-10">CONTACT US</span>
-          {currentPath === '/contact' && <div class="absolute inset-0 bg-gradient-to-r from-marigold/10 to-transparent"></div>}
+          {
+            currentPath === '/contact' && (
+              <div class="absolute inset-0 bg-gradient-to-r from-marigold/10 to-transparent" />
+            )
+          }
         </a>
       </nav>
 
@@ -103,13 +171,22 @@ const currentPath = Astro.url.pathname;
       <div class="flex items-center space-x-3 lg:space-x-4">
         <!-- Social Icons (Hidden on mobile) -->
         <div class="hidden sm:flex items-center space-x-2 lg:space-x-3">
-          <a href="#" class="text-grey hover:text-marigold transition-all duration-200 p-2 rounded-lg hover:bg-pale-marigold/50 group">
+          <a
+            href="#"
+            class="text-grey hover:text-marigold transition-all duration-200 p-2 rounded-lg hover:bg-pale-marigold/50 group"
+          >
             <Facebook size={18} class="group-hover:scale-110 transition-transform duration-200" />
           </a>
-          <a href="#" class="text-grey hover:text-marigold transition-all duration-200 p-2 rounded-lg hover:bg-pale-marigold/50 group">
+          <a
+            href="#"
+            class="text-grey hover:text-marigold transition-all duration-200 p-2 rounded-lg hover:bg-pale-marigold/50 group"
+          >
             <Instagram size={18} class="group-hover:scale-110 transition-transform duration-200" />
           </a>
-          <a href="#" class="text-grey hover:text-marigold transition-all duration-200 p-2 rounded-lg hover:bg-pale-marigold/50 group">
+          <a
+            href="#"
+            class="text-grey hover:text-marigold transition-all duration-200 p-2 rounded-lg hover:bg-pale-marigold/50 group"
+          >
             <Youtube size={18} class="group-hover:scale-110 transition-transform duration-200" />
           </a>
           <div class="w-px h-6 bg-slate-300 mx-2"></div>
@@ -123,7 +200,11 @@ const currentPath = Astro.url.pathname;
         >
           <span class="sr-only">Open main menu</span>
           <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
       </div>
@@ -133,38 +214,84 @@ const currentPath = Astro.url.pathname;
     <div class="md:hidden hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-slate-200">
         <div class="space-y-1">
-          <button class="text-deep-grey hover:text-marigold block px-3 py-2 text-base font-medium w-full text-left" onclick="toggleMobileSubmenu('about')">
+          <button
+            class="text-deep-grey hover:text-marigold block px-3 py-2 text-base font-medium w-full text-left"
+            onclick="toggleMobileSubmenu('about')"
+          >
             ABOUT US
             <svg class="inline ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
           <div class="hidden pl-4" id="mobile-about-submenu">
-            <a href="/our-story" class="text-grey hover:text-marigold block px-3 py-2 text-sm">Our Story</a>
-            <a href="/management-board" class="text-grey hover:text-marigold block px-3 py-2 text-sm">Management Board</a>
+            <a href="/our-story" class="text-grey hover:text-marigold block px-3 py-2 text-sm"
+              >Our Story</a
+            >
+            <a
+              href="/management-board"
+              class="text-grey hover:text-marigold block px-3 py-2 text-sm">Management Board</a
+            >
           </div>
         </div>
 
         <div class="space-y-1">
-          <button class="text-deep-grey hover:text-marigold block px-3 py-2 text-base font-medium w-full text-left" onclick="toggleMobileSubmenu('services')">
+          <button
+            class="text-deep-grey hover:text-marigold block px-3 py-2 text-base font-medium w-full text-left"
+            onclick="toggleMobileSubmenu('services')"
+          >
             SERVICES
             <svg class="inline ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
           <div class="hidden pl-4" id="mobile-services-submenu">
-            <a href="#services" class="text-grey hover:text-marigold block px-3 py-2 text-sm">All Services</a>
-            <a href="#expertise-support" class="text-grey hover:text-marigold block px-3 py-2 text-sm">Expertise & Support</a>
-            <a href="#facilitation-services" class="text-grey hover:text-marigold block px-3 py-2 text-sm">Facilitation Services</a>
-            <a href="#internship-mentorship" class="text-grey hover:text-marigold block px-3 py-2 text-sm">Internship & Mentorship</a>
-            <a href="#seed-funding" class="text-grey hover:text-marigold block px-3 py-2 text-sm">Seed Funding</a>
-            <a href="#training" class="text-grey hover:text-marigold block px-3 py-2 text-sm">Training</a>
+            <a href="#services" class="text-grey hover:text-marigold block px-3 py-2 text-sm"
+              >All Services</a
+            >
+            <a
+              href="#expertise-support"
+              class="text-grey hover:text-marigold block px-3 py-2 text-sm">Expertise & Support</a
+            >
+            <a
+              href="#facilitation-services"
+              class="text-grey hover:text-marigold block px-3 py-2 text-sm">Facilitation Services</a
+            >
+            <a
+              href="#internship-mentorship"
+              class="text-grey hover:text-marigold block px-3 py-2 text-sm"
+              >Internship & Mentorship</a
+            >
+            <a href="#seed-funding" class="text-grey hover:text-marigold block px-3 py-2 text-sm"
+              >Seed Funding</a
+            >
+            <a href="#training" class="text-grey hover:text-marigold block px-3 py-2 text-sm"
+              >Training</a
+            >
           </div>
         </div>
 
-        <a href="/academy" class="text-deep-grey hover:text-marigold block px-3 py-2 text-base font-medium">ACADEMY</a>
-        <a href="/news" class="text-deep-grey hover:text-marigold block px-3 py-2 text-base font-medium">NEWS</a>
-        <a href="/contact" class="text-deep-grey hover:text-marigold block px-3 py-2 text-base font-medium">CONTACT US</a>
+        <a
+          href="/academy"
+          class="text-deep-grey hover:text-marigold block px-3 py-2 text-base font-medium"
+          >ACADEMY</a
+        >
+        <a
+          href="/news"
+          class="text-deep-grey hover:text-marigold block px-3 py-2 text-base font-medium">NEWS</a
+        >
+        <a
+          href="/contact"
+          class="text-deep-grey hover:text-marigold block px-3 py-2 text-base font-medium"
+          >CONTACT US</a
+        >
 
         <!-- Mobile Social Icons -->
         <div class="flex items-center space-x-3 px-3 py-2 sm:hidden">

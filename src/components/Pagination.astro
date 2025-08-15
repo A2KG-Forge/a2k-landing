@@ -11,37 +11,44 @@ interface Props {
 const { prevUrl, nextUrl, prevTitle = 'Previous Post', nextTitle = 'Next Post' } = Astro.props;
 ---
 
-<nav class="flex items-center justify-between py-8 px-4 max-w-4xl mx-auto border-t border-slate-200/50 mt-12">
+<nav
+  class="flex items-center justify-between py-8 px-4 max-w-4xl mx-auto border-t border-slate-200/50 mt-12"
+>
   <!-- Previous Post Button -->
   <div class="flex-1">
-    {prevUrl ? (
-      <a 
-        href={prevUrl}
-        class="group flex items-center space-x-3 p-4 rounded-xl bg-white hover:bg-pale-marigold/30 border border-slate-200/50 hover:border-marigold/30 transition-all duration-300 shadow-sm hover:shadow-md max-w-sm"
-      >
-        <div class="flex-shrink-0">
-          <div class="w-10 h-10 bg-slate-100 group-hover:bg-marigold/20 rounded-lg flex items-center justify-center transition-all duration-300">
-            <ChevronLeft size={20} class="text-grey group-hover:text-marigold transition-colors duration-300" />
+    {
+      prevUrl ? (
+        <a
+          href={prevUrl}
+          class="group flex items-center space-x-3 p-4 rounded-xl bg-white hover:bg-pale-marigold/30 border border-slate-200/50 hover:border-marigold/30 transition-all duration-300 shadow-sm hover:shadow-md max-w-sm"
+        >
+          <div class="flex-shrink-0">
+            <div class="w-10 h-10 bg-slate-100 group-hover:bg-marigold/20 rounded-lg flex items-center justify-center transition-all duration-300">
+              <ChevronLeft
+                size={20}
+                class="text-grey group-hover:text-marigold transition-colors duration-300"
+              />
+            </div>
           </div>
-        </div>
-        <div class="min-w-0 flex-1">
-          <p class="text-xs font-medium text-grey uppercase tracking-wider mb-1">Previous</p>
-          <p class="text-sm font-medium text-deep-grey group-hover:text-marigold transition-colors duration-300 truncate">
-            {prevTitle}
-          </p>
-        </div>
-      </a>
-    ) : (
-      <div class="invisible max-w-sm">
-        <div class="flex items-center space-x-3 p-4">
-          <div class="w-10 h-10"></div>
           <div class="min-w-0 flex-1">
-            <p class="text-xs">&nbsp;</p>
-            <p class="text-sm">&nbsp;</p>
+            <p class="text-xs font-medium text-grey uppercase tracking-wider mb-1">Previous</p>
+            <p class="text-sm font-medium text-deep-grey group-hover:text-marigold transition-colors duration-300 truncate">
+              {prevTitle}
+            </p>
+          </div>
+        </a>
+      ) : (
+        <div class="invisible max-w-sm">
+          <div class="flex items-center space-x-3 p-4">
+            <div class="w-10 h-10" />
+            <div class="min-w-0 flex-1">
+              <p class="text-xs">&nbsp;</p>
+              <p class="text-sm">&nbsp;</p>
+            </div>
           </div>
         </div>
-      </div>
-    )}
+      )
+    }
   </div>
 
   <!-- Center Divider -->
@@ -51,76 +58,91 @@ const { prevUrl, nextUrl, prevTitle = 'Previous Post', nextTitle = 'Next Post' }
 
   <!-- Next Post Button -->
   <div class="flex-1 flex justify-end">
-    {nextUrl ? (
-      <a 
-        href={nextUrl}
-        class="group flex items-center space-x-3 p-4 rounded-xl bg-white hover:bg-pale-marigold/30 border border-slate-200/50 hover:border-marigold/30 transition-all duration-300 shadow-sm hover:shadow-md max-w-sm"
-      >
-        <div class="min-w-0 flex-1 text-right">
-          <p class="text-xs font-medium text-grey uppercase tracking-wider mb-1">Next</p>
-          <p class="text-sm font-medium text-deep-grey group-hover:text-marigold transition-colors duration-300 truncate">
-            {nextTitle}
-          </p>
-        </div>
-        <div class="flex-shrink-0">
-          <div class="w-10 h-10 bg-slate-100 group-hover:bg-marigold/20 rounded-lg flex items-center justify-center transition-all duration-300">
-            <ChevronRight size={20} class="text-grey group-hover:text-marigold transition-colors duration-300" />
+    {
+      nextUrl ? (
+        <a
+          href={nextUrl}
+          class="group flex items-center space-x-3 p-4 rounded-xl bg-white hover:bg-pale-marigold/30 border border-slate-200/50 hover:border-marigold/30 transition-all duration-300 shadow-sm hover:shadow-md max-w-sm"
+        >
+          <div class="min-w-0 flex-1 text-right">
+            <p class="text-xs font-medium text-grey uppercase tracking-wider mb-1">Next</p>
+            <p class="text-sm font-medium text-deep-grey group-hover:text-marigold transition-colors duration-300 truncate">
+              {nextTitle}
+            </p>
+          </div>
+          <div class="flex-shrink-0">
+            <div class="w-10 h-10 bg-slate-100 group-hover:bg-marigold/20 rounded-lg flex items-center justify-center transition-all duration-300">
+              <ChevronRight
+                size={20}
+                class="text-grey group-hover:text-marigold transition-colors duration-300"
+              />
+            </div>
+          </div>
+        </a>
+      ) : (
+        <div class="invisible max-w-sm">
+          <div class="flex items-center space-x-3 p-4">
+            <div class="min-w-0 flex-1">
+              <p class="text-xs">&nbsp;</p>
+              <p class="text-sm">&nbsp;</p>
+            </div>
+            <div class="w-10 h-10" />
           </div>
         </div>
-      </a>
-    ) : (
-      <div class="invisible max-w-sm">
-        <div class="flex items-center space-x-3 p-4">
-          <div class="min-w-0 flex-1">
-            <p class="text-xs">&nbsp;</p>
-            <p class="text-sm">&nbsp;</p>
-          </div>
-          <div class="w-10 h-10"></div>
-        </div>
-      </div>
-    )}
+      )
+    }
   </div>
 </nav>
 
 <!-- Mobile-optimized version -->
 <nav class="md:hidden flex flex-col space-y-3 py-6 px-4 border-t border-slate-200/50 mt-8">
   <!-- Previous Post Button (Mobile) -->
-  {prevUrl && (
-    <a 
-      href={prevUrl}
-      class="group flex items-center space-x-3 p-4 rounded-xl bg-white hover:bg-pale-marigold/30 border border-slate-200/50 hover:border-marigold/30 transition-all duration-300 shadow-sm hover:shadow-md"
-    >
-      <div class="flex-shrink-0">
-        <div class="w-10 h-10 bg-slate-100 group-hover:bg-marigold/20 rounded-lg flex items-center justify-center transition-all duration-300">
-          <ChevronLeft size={20} class="text-grey group-hover:text-marigold transition-colors duration-300" />
+  {
+    prevUrl && (
+      <a
+        href={prevUrl}
+        class="group flex items-center space-x-3 p-4 rounded-xl bg-white hover:bg-pale-marigold/30 border border-slate-200/50 hover:border-marigold/30 transition-all duration-300 shadow-sm hover:shadow-md"
+      >
+        <div class="flex-shrink-0">
+          <div class="w-10 h-10 bg-slate-100 group-hover:bg-marigold/20 rounded-lg flex items-center justify-center transition-all duration-300">
+            <ChevronLeft
+              size={20}
+              class="text-grey group-hover:text-marigold transition-colors duration-300"
+            />
+          </div>
         </div>
-      </div>
-      <div class="min-w-0 flex-1">
-        <p class="text-xs font-medium text-grey uppercase tracking-wider mb-1">Previous Post</p>
-        <p class="text-sm font-medium text-deep-grey group-hover:text-marigold transition-colors duration-300 line-clamp-2">
-          {prevTitle}
-        </p>
-      </div>
-    </a>
-  )}
+        <div class="min-w-0 flex-1">
+          <p class="text-xs font-medium text-grey uppercase tracking-wider mb-1">Previous Post</p>
+          <p class="text-sm font-medium text-deep-grey group-hover:text-marigold transition-colors duration-300 line-clamp-2">
+            {prevTitle}
+          </p>
+        </div>
+      </a>
+    )
+  }
 
   <!-- Next Post Button (Mobile) -->
-  {nextUrl && (
-    <a 
-      href={nextUrl}
-      class="group flex items-center space-x-3 p-4 rounded-xl bg-white hover:bg-pale-marigold/30 border border-slate-200/50 hover:border-marigold/30 transition-all duration-300 shadow-sm hover:shadow-md"
-    >
-      <div class="min-w-0 flex-1">
-        <p class="text-xs font-medium text-grey uppercase tracking-wider mb-1">Next Post</p>
-        <p class="text-sm font-medium text-deep-grey group-hover:text-marigold transition-colors duration-300 line-clamp-2">
-          {nextTitle}
-        </p>
-      </div>
-      <div class="flex-shrink-0">
-        <div class="w-10 h-10 bg-slate-100 group-hover:bg-marigold/20 rounded-lg flex items-center justify-center transition-all duration-300">
-          <ChevronRight size={20} class="text-grey group-hover:text-marigold transition-colors duration-300" />
+  {
+    nextUrl && (
+      <a
+        href={nextUrl}
+        class="group flex items-center space-x-3 p-4 rounded-xl bg-white hover:bg-pale-marigold/30 border border-slate-200/50 hover:border-marigold/30 transition-all duration-300 shadow-sm hover:shadow-md"
+      >
+        <div class="min-w-0 flex-1">
+          <p class="text-xs font-medium text-grey uppercase tracking-wider mb-1">Next Post</p>
+          <p class="text-sm font-medium text-deep-grey group-hover:text-marigold transition-colors duration-300 line-clamp-2">
+            {nextTitle}
+          </p>
         </div>
-      </div>
-    </a>
-  )}
+        <div class="flex-shrink-0">
+          <div class="w-10 h-10 bg-slate-100 group-hover:bg-marigold/20 rounded-lg flex items-center justify-center transition-all duration-300">
+            <ChevronRight
+              size={20}
+              class="text-grey group-hover:text-marigold transition-colors duration-300"
+            />
+          </div>
+        </div>
+      </a>
+    )
+  }
 </nav>

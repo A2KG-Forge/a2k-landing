@@ -3,11 +3,7 @@ module.exports = {
     collect: {
       startServerCommand: 'npm run preview',
       startServerReadyPattern: 'Local:',
-      url: [
-        'http://localhost:4173',
-        'http://localhost:4173/blog',
-        'http://localhost:4173/about'
-      ],
+      url: ['http://localhost:4173', 'http://localhost:4173/blog', 'http://localhost:4173/about'],
       numberOfRuns: 3,
     },
     assert: {
