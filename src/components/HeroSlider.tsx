@@ -58,31 +58,24 @@ const slides: Slide[] = [
 
 export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-
   useEffect(() => {
-    if (!isAutoPlaying) return;
-
     const interval = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % slides.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+  }, []);
 
   const nextSlide = () => {
     setCurrentSlide(prev => (prev + 1) % slides.length);
-    setIsAutoPlaying(false);
   };
 
   const prevSlide = () => {
     setCurrentSlide(prev => (prev - 1 + slides.length) % slides.length);
-    setIsAutoPlaying(false);
   };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
-    setIsAutoPlaying(false);
   };
 
   const currentSlideData = slides[currentSlide];
@@ -168,20 +161,6 @@ export default function HeroSlider() {
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>{' '}
-      {/* Auto-play indicator */}
-      <div className="absolute top-3 sm:top-4 lg:top-6 right-3 sm:right-4 lg:right-8 z-20">
-        <button
-          onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-          className={`px-1.5 sm:px-2 lg:px-3 py-0.5 sm:py-1 lg:py-1.5 text-[10px] sm:text-xs font-medium rounded-full backdrop-blur-sm border transition-all duration-300 ${
-            isAutoPlaying
-              ? 'bg-[#f6ad55]/40 border-[#f6ad55]/60 text-white'
-              : 'bg-black/50 border-white/40 text-white hover:bg-black/70 hover:border-[#f6ad55]/50'
-          }`}
-        >
-          <span className="hidden sm:inline">{isAutoPlaying ? '● AUTO' : '○ MANUAL'}</span>
-          <span className="sm:hidden">{isAutoPlaying ? '●' : '○'}</span>
-        </button>
       </div>
     </section>
   );
