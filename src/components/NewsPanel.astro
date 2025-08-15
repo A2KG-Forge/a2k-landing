@@ -12,7 +12,7 @@ const sortedNews = newsItems.sort((a, b) => b.data.pubDate.getTime() - a.data.pu
 
     <div class="grid md:grid-cols-4 gap-6">
       {
-        sortedNews.slice(0, 4).map((item) => (
+        sortedNews.slice(0, 4).map(item => (
           <div class="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors cursor-pointer">
             <a href={`/blog/${item.id}`} class="block">
               {typeof item.data.heroImage === 'string' ? (
@@ -43,7 +43,9 @@ const sortedNews = newsItems.sort((a, b) => b.data.pubDate.getTime() - a.data.pu
                     day: 'numeric',
                   })}
                 </p>
-                <span class="text-[#f6ad55] hover:text-[#ed8936] text-sm font-medium">Read more</span>
+                <span class="text-[#f6ad55] hover:text-[#ed8936] text-sm font-medium">
+                  Read more
+                </span>
               </div>
             </a>
           </div>
@@ -54,7 +56,7 @@ const sortedNews = newsItems.sort((a, b) => b.data.pubDate.getTime() - a.data.pu
     <div class="text-center mt-12">
       <a
         href="/blog"
-        class="inline-block px-8 py-3 border border-white text-white hover:bg-white hover:text-gray-900 transition-colors duration-300"
+        class="inline-block px-8 py-3 border border-white hover:bg-white hover:text-zinc-900 transition-colors duration-300"
       >
         MORE NEWS
       </a>
