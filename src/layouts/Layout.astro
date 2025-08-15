@@ -1,33 +1,28 @@
 ---
 import '@/styles/global.css';
 import Header from '@/components/Header.astro';
-
-export interface Props {
-  title: string;
-  description?: string;
-}
-
-const { title, description = 'A2K Group - Transforming Services through Digital Innovation' } =
-  Astro.props;
+import BaseHead from '@/components/BaseHead.astro';
+import Footer from '@/components/Footer.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts';
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
+    <meta name="description" content={SITE_DESCRIPTION} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
 
     <!-- SEO Meta Tags -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={SITE_TITLE} />
+    <meta property="og:description" content={SITE_DESCRIPTION} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={SITE_TITLE} />
+    <meta name="twitter:description" content={SITE_DESCRIPTION} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,6 +40,7 @@ const { title, description = 'A2K Group - Transforming Services through Digital 
   <body class="font-body bg-white text-deep-grey antialiased">
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 
