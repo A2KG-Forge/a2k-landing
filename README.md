@@ -12,7 +12,6 @@ website for Reforge A2K with integrated content management and CI/CD workflows.
 - 🎨 **Tailwind CSS 4** - Modern utility-first styling
 - 📱 **Responsive Design** - Mobile-first responsive layouts
 - 🔍 **SEO Optimized** - Canonical URLs, OpenGraph, and sitemap support
-- 📊 **Lighthouse CI** - Automated performance monitoring
 - 🔧 **Type Safety** - Full TypeScript support with strict type checking
 - 🎯 **Code Quality** - ESLint, Prettier, and Husky pre-commit hooks
 - 🚀 **GitHub Actions** - Automated CI/CD pipeline
@@ -42,7 +41,6 @@ reforge-a2k/
 │   │   ├── about.astro    # About page
 │   │   └── blog/          # Blog pages
 │   └── styles/            # Global CSS styles
-├── .lighthouserc.cjs      # Lighthouse CI configuration
 ├── .prettierrc.json       # Code formatting rules
 ├── astro.config.ts        # Astro configuration
 ├── package.json           # Dependencies and scripts

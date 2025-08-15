@@ -37,7 +37,6 @@ npm run format:check # Check if code is properly formatted
 
 - **Lint and Format Check**: Code quality validation
 - **Build and Test**: Project compilation and testing
-- **Lighthouse CI**: Performance testing (PR only)
 
 ### 2. Deploy Workflow (`.github/workflows/deploy.yml`)
 
@@ -71,14 +70,6 @@ Code formatting configuration:
 - 100 character line length
 - Special handling for `.astro` and `.md` files
 
-### Lighthouse CI (`.lighthouserc.js`)
-
-Performance testing configuration:
-
-- Tests homepage, blog, and about pages
-- Performance, accessibility, and SEO thresholds
-- Warns on performance < 90%, errors on accessibility < 90%
-
 ### PR Labeler (`.github/labeler.yml`)
 
 Automatic labeling rules:
@@ -92,7 +83,7 @@ Automatic labeling rules:
 1. **Install dependencies** (already done):
 
    ```bash
-   npm install --save-dev prettier @lhci/cli husky
+   npm install --save-dev prettier husky
    ```
 
 2. **Initialize Husky** (already done):
@@ -137,7 +128,6 @@ Configure these rules for the `main` branch:
 - **Husky hooks not running**: Run `npx husky install`
 - **Prettier conflicts**: Check `.prettierrc.json` configuration
 - **Build failures**: Ensure all TypeScript errors are resolved
-- **Lighthouse failures**: Check performance budgets in `.lighthouserc.js`
 
 ### Bypassing Hooks (Emergency Only)
 
