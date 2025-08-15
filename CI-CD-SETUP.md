@@ -70,7 +70,6 @@ Code formatting configuration:
 - 100 character line length
 - Special handling for `.astro` and `.md` files
 
-
 ### PR Labeler (`.github/labeler.yml`)
 
 Automatic labeling rules:
