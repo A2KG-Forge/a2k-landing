@@ -1,4 +1,4 @@
-# Reforge A2K Landing Page
+# A2KG Landing Page built with Astro
 
 A modern, performant landing page built with Astro, featuring a blog system,
 news panels, and optimized for collaboration. This project serves as the main
@@ -12,6 +12,7 @@ website for Reforge A2K with integrated content management and CI/CD workflows.
 - 🎨 **Tailwind CSS 4** - Modern utility-first styling
 - 📱 **Responsive Design** - Mobile-first responsive layouts
 - 🔍 **SEO Optimized** - Canonical URLs, OpenGraph, and sitemap support
+- 📊 **Lighthouse CI** - Automated performance monitoring
 - 🔧 **Type Safety** - Full TypeScript support with strict type checking
 - 🎯 **Code Quality** - ESLint, Prettier, and Husky pre-commit hooks
 - 🚀 **GitHub Actions** - Automated CI/CD pipeline
@@ -41,6 +42,7 @@ reforge-a2k/
 │   │   ├── about.astro    # About page
 │   │   └── blog/          # Blog pages
 │   └── styles/            # Global CSS styles
+├── .lighthouserc.cjs      # Lighthouse CI configuration
 ├── .prettierrc.json       # Code formatting rules
 ├── astro.config.ts        # Astro configuration
 ├── package.json           # Dependencies and scripts
@@ -60,7 +62,8 @@ reforge-a2k/
 1. **Clone the repository**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/A2KG-Forge/a2k-landing.git
+
    cd reforge-a2k
    ```
 
@@ -80,20 +83,18 @@ reforge-a2k/
 
 ## 📋 Available Commands
 
-| Command                | Action                                             |
-| ---------------------- | -------------------------------------------------- |
-| `npm run dev`          | Start development server at `localhost:4321`       |
-| `npm run build`        | Build production site to `./dist/`                 |
-| `npm run preview`      | Preview production build locally                   |
-| `npm run format`       | Format code with Prettier                          |
-| `npm run format:check` | Check code formatting                              |
-| `npm run type-check`   | Run TypeScript type checking                       |
-| `npm run lint`         | Run ESLint on all files                            |
-| `npm run lint:fix`     | Run ESLint and automatically fix issues            |
-| `npm run lint:astro`   | Run Astro-specific type checking                   |
-| `npm run pre-commit`   | Run pre-commit checks (format + lint + type check) |
-| `npm run pre-push`     | Run pre-push checks (includes build)               |
-| `npm test`             | Run tests (placeholder for future implementation)  |
+| Command                | Action                                            |
+| ---------------------- | ------------------------------------------------- |
+| `npm run dev`          | Start development server at `localhost:4321`      |
+| `npm run build`        | Build production site to `./dist/`                |
+| `npm run preview`      | Preview production build locally                  |
+| `npm run format`       | Format code with Prettier                         |
+| `npm run format:check` | Check code formatting                             |
+| `npm run type-check`   | Run TypeScript type checking                      |
+| `npm run lint`         | Run Astro linting                                 |
+| `npm run pre-commit`   | Run pre-commit checks (format + type check)       |
+| `npm run pre-push`     | Run pre-push checks (includes build)              |
+| `npm test`             | Run tests (placeholder for future implementation) |
 
 ## 👥 Collaboration Guidelines
 
@@ -241,135 +242,6 @@ npx prettier --write src/components/Header.astro
 2. Enable **"Format on Save"** in settings
 3. Set Prettier as default formatter
 
-### Pre-commit Formatting Workflow
-
-To avoid formatting-related commit failures, follow this workflow:
-
-1. **Format before committing**:
-
-   ```bash
-   npm run format
-   git add .
-   git commit -m "feat: your changes"
-   ```
-
-2. **Or use the integrated workflow**:
-
-   ```bash
-   # This checks formatting and types before committing
-   npm run pre-commit
-
-   # If it passes, commit your changes
-   git commit -m "feat: your changes"
-   ```
-
-**Note**: The pre-commit hook uses `format:check` (not `format`) to avoid the
-issue where Prettier modifies files during the commit process without re-staging
-them. Always format your code before committing!
-
-## 🔍 Code Quality with ESLint
-
-### ESLint Configuration
-
-The project uses ESLint with a comprehensive configuration that includes:
-
-- **TypeScript support** with `typescript-eslint`
-- **React rules** for JSX components
-- **Astro-specific rules** for `.astro` files
-- **Accessibility rules** with `jsx-a11y`
-- **React Hooks rules** for proper hook usage
-
-### ESLint Rules Overview
-
-#### Core Rules
-
-- No unused variables (with underscore prefix exception)
-- Prefer const over let
-- No var declarations
-- Object shorthand syntax
-- Template literals over string concatenation
-
-#### React Rules
-
-- No React import needed (React 17+)
-- Proper hook usage and dependencies
-- JSX accessibility checks
-
-#### TypeScript Rules
-
-- Warn on explicit `any` usage
-- Strict unused variable checking
-- Type-safe coding patterns
-
-### Linting Commands
-
-```bash
-# Lint all files
-npm run lint
-
-# Auto-fix linting issues
-npm run lint:fix
-
-# Lint specific file
-npx eslint src/components/Header.astro
-
-# Lint with specific file extensions
-npx eslint . --ext .js,.ts,.tsx,.astro
-```
-
-### VS Code ESLint Integration
-
-1. Install the **ESLint extension**
-2. Enable auto-fix on save:
-   ```json
-   {
-     "eslint.validate": ["astro", "typescript", "typescriptreact"],
-     "editor.codeActionsOnSave": {
-       "source.fixAll.eslint": true
-     }
-   }
-   ```
-
-### Common ESLint Fixes
-
-```bash
-# Fix accessibility issues (empty href attributes)
-# Replace href="#" with href="/actual-link" or use <button>
-
-# Fix unused variables
-# Add underscore prefix: const _unusedVar = value;
-
-# Fix object shorthand
-# Replace { name: name } with { name }
-```
-
-### Prettier Issues on Windows
-
-**Problem**: Prettier keeps failing even after formatting **Root Cause**: Line
-ending conflicts between Windows (CRLF) and Unix (LF)
-
-**Solutions Applied**:
-
-1. ✅ **Updated Prettier config**: Changed `"endOfLine": "lf"` to
-   `"endOfLine": "auto"`
-2. ✅ **Fixed Git config**: Set `core.autocrlf=false` to prevent automatic line
-   ending conversion
-3. ✅ **Added .gitattributes**: Ensures consistent line endings across team
-   members
-4. ✅ **VS Code settings**: Auto-format on save with consistent line endings
-
-**Quick Fix Commands**:
-
-```bash
-# Fix line ending issues
-git config core.autocrlf false
-npm run format
-
-# If still having issues, normalize line endings
-git add --renormalize .
-git commit -m "Normalize line endings"
-```
-
 ## 🔧 Troubleshooting & Error Handling
 
 ### Common Issues and Solutions
@@ -381,17 +253,14 @@ git commit -m "Normalize line endings"
 **Solutions**:
 
 ```bash
-# The pre-commit hook now automatically formats code,
-# but may fail on type checking issues
+# Fix formatting issues
+npm run format
 
 # Check for type errors
 npm run type-check
 
-# Run full pre-commit check (includes auto-formatting)
+# Run full pre-commit check
 npm run pre-commit
-
-# Manual formatting (if needed)
-npm run format
 ```
 
 #### 2. TypeScript Errors

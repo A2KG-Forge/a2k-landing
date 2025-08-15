@@ -6,55 +6,127 @@ const newsItems = await getCollection('blog');
 const sortedNews = newsItems.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
-<section class="py-20 bg-zinc-800 text-white">
+<section class="py-16 sm:py-20 bg-zinc-900">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl font-light text-white text-center mb-16">OUR LATEST NEWS</h2>
+    <!-- Section Header -->
+    <div class="text-center mb-12 sm:mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-4">
+        Latest <span class="text-[#f6ad55] font-medium">Insights</span>
+      </h2>
+      <p class="text-zinc-300 text-lg max-w-2xl mx-auto">
+        Stay updated with our latest news, insights, and industry developments
+      </p>
+    </div>
 
-    <div class="grid md:grid-cols-4 gap-6">
+    <!-- News Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
       {
         sortedNews.slice(0, 4).map(item => (
-          <div class="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors cursor-pointer">
+          <article class="group bg-zinc-800 rounded-2xl shadow-lg border border-zinc-700 overflow-hidden hover:shadow-2xl hover:-translate-y-1 hover:border-zinc-600 transition-all duration-300">
             <a href={`/blog/${item.id}`} class="block">
-              {item.data.heroImage ? (
-                <Image
-                  src={item.data.heroImage}
-                  alt={item.data.title}
-                  width={400}
-                  height={192}
-                  class="w-full h-48 object-cover"
-                />
-              ) : (
-                <div class="w-full h-48 bg-gray-600 flex items-center justify-center">
-                  <span class="text-gray-200">No image</span>
+              <div class="relative overflow-hidden">
+                {item.data.heroImage ? (
+                  <Image
+                    src={item.data.heroImage}
+                    alt={item.data.title}
+                    width={400}
+                    height={240}
+                    class="w-full h-48 sm:h-52 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div class="w-full h-48 sm:h-52 bg-gradient-to-br from-zinc-700 to-zinc-800 flex items-center justify-center">
+                    <div class="text-center">
+                      <svg
+                        class="w-12 h-12 text-[#f6ad55] mx-auto mb-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15"
+                        />
+                      </svg>
+                      <span class="text-sm text-zinc-400">Article</span>
+                    </div>
+                  </div>
+                )}
+                <div class="absolute top-3 left-3">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-[#f6ad55] text-black">
+                    Blog
+                  </span>
                 </div>
-              )}
-              <div class="p-6">
-                <h3 class="text-lg font-semibold mb-3 line-clamp-2 text-gray-100">
-                  {item.data.title}
-                </h3>
-                <p class="text-gray-300 text-sm mb-4">
+              </div>
+              <div class="p-5 sm:p-6">
+                {/* Date */}
+                <div class="flex items-center text-sm text-zinc-400 mb-3">
+                  <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
                   {item.data.pubDate.toLocaleDateString('en-US', {
                     year: 'numeric',
-                    month: 'long',
+                    month: 'short',
                     day: 'numeric',
                   })}
-                </p>
-                <span class="text-[#f6ad55] hover:text-[#ed8936] text-sm font-medium">
-                  Read more
-                </span>
+                </div>
+
+                {/* <!-- Title --> */}
+                <h3 class="text-lg sm:text-xl font-semibold text-white mb-3 line-clamp-2 group-hover:text-[#f6ad55] transition-colors duration-200">
+                  {item.data.title}
+                </h3>
+
+                {/* <!-- Excerpt (if available) --> */}
+                {item.data.description && (
+                  <p class="text-zinc-300 text-sm leading-relaxed mb-4 line-clamp-2">
+                    {item.data.description}
+                  </p>
+                )}
+
+                {/* <!-- Read More Link --> */}
+                <div class="flex items-center text-[#f6ad55] font-medium text-sm group-hover:text-[#ed8936] transition-colors duration-200">
+                  <span>Read article</span>
+                  <svg
+                    class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-200"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
               </div>
             </a>
-          </div>
+          </article>
         ))
       }
     </div>
 
-    <div class="text-center mt-12">
+    <!-- View All Button -->
+    <div class="text-center mt-12 sm:mt-16">
       <a
         href="/blog"
-        class="inline-block px-8 py-3 border border-white hover:bg-white hover:text-zinc-900 transition-colors duration-300"
+        class="inline-flex items-center px-8 py-4 bg-[#f6ad55] hover:bg-[#ed8936] text-black font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
       >
-        MORE NEWS
+        <span>View All Articles</span>
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
       </a>
     </div>
   </div>
