@@ -1,70 +1,382 @@
-# Astro Starter Kit: Blog
+# Reforge A2K Landing Page
 
-```sh
-npm create astro@latest -- --template blog
-```
+A modern, performant landing page built with Astro, featuring a blog system, news panels, and optimized for collaboration. This project serves as the main website for Reforge A2K with integrated content management and CI/CD workflows.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## ✨ Features
 
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+- 🚀 **Astro 5** - Modern static site generator with optimal performance
+- 📝 **Content Collections** - Type-safe blog and news content management
+- ⚡ **React Components** - Interactive components with TypeScript
+- 🎨 **Tailwind CSS 4** - Modern utility-first styling
+- 📱 **Responsive Design** - Mobile-first responsive layouts
+- 🔍 **SEO Optimized** - Canonical URLs, OpenGraph, and sitemap support
+- 📊 **Lighthouse CI** - Automated performance monitoring
+- 🔧 **Type Safety** - Full TypeScript support with strict type checking
+- 🎯 **Code Quality** - ESLint, Prettier, and Husky pre-commit hooks
+- 🚀 **GitHub Actions** - Automated CI/CD pipeline
+- 📰 **RSS Feed** - Automatic RSS feed generation
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
 ```text
-├── public/
+reforge-a2k/
+├── .github/                 # GitHub workflows and configurations
+│   └── workflows/           # CI/CD automation
+├── public/                  # Static assets (images, icons, etc.)
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+│   ├── assets/             # Optimized images and media
+│   ├── components/         # Reusable Astro & React components
+│   │   ├── Header.astro    # Site navigation
+│   │   ├── Hero.astro      # Homepage hero section
+│   │   ├── HeroSlider.tsx  # Interactive hero slider
+│   │   └── NewsPanel.astro # News/blog content display
+│   ├── content/           # Content collections
+│   │   └── blog/          # Blog posts (Markdown/MDX)
+│   ├── layouts/           # Page layouts
+│   │   ├── Layout.astro   # Base layout
+│   │   └── BlogPost.astro # Blog post layout
+│   ├── pages/             # File-based routing
+│   │   ├── index.astro    # Homepage
+│   │   ├── about.astro    # About page
+│   │   └── blog/          # Blog pages
+│   └── styles/            # Global CSS styles
+├── .lighthouserc.cjs      # Lighthouse CI configuration
+├── .prettierrc.json       # Code formatting rules
+├── astro.config.ts        # Astro configuration
+├── package.json           # Dependencies and scripts
+└── tsconfig.json          # TypeScript configuration
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page
-is exposed as a route based on its file name.
+## 🛠️ Getting Started
 
-There's nothing special about `src/components/`, but that's where we like to put
-any Astro/React/Vue/Svelte/Preact components.
+### Prerequisites
 
-The `src/content/` directory contains "collections" of related Markdown and MDX
-documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and
-type-check your frontmatter using an optional schema. See
-[Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/)
-to learn more.
+- **Node.js** (v20 or higher)
+- **npm** (comes with Node.js)
+- **Git** for version control
 
-Any static assets, like images, can be placed in the `public/` directory.
+### Installation
 
-## 🧞 Commands
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd reforge-a2k
+   ```
 
-All commands are run from the root of the project, from a terminal:
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
 
-## 👀 Want to learn more?
+4. **Open your browser**
+   Navigate to `http://localhost:4321`
 
-Check out [our documentation](https://docs.astro.build) or jump into our
-[Discord server](https://astro.build/chat).
+## 📋 Available Commands
 
-## Credit
+| Command | Action |
+|---------|--------|
+| `npm run dev` | Start development server at `localhost:4321` |
+| `npm run build` | Build production site to `./dist/` |
+| `npm run preview` | Preview production build locally |
+| `npm run format` | Format code with Prettier |
+| `npm run format:check` | Check code formatting |
+| `npm run type-check` | Run TypeScript type checking |
+| `npm run lint` | Run Astro linting |
+| `npm run pre-commit` | Run pre-commit checks (format code + type check) |
+| `npm run pre-push` | Run pre-push checks (includes build) |
+| `npm test` | Run tests (placeholder for future implementation) |
 
-This theme is based off of the lovely
-[Bear Blog](https://github.com/HermanMartinus/bearblog/).
+## 👥 Collaboration Guidelines
+
+### Branch Naming Convention
+
+- `feature/feature-name` - New features
+- `fix/issue-description` - Bug fixes
+- `docs/update-description` - Documentation updates
+- `style/style-changes` - Styling updates
+- `refactor/refactor-description` - Code refactoring
+
+### Development Workflow
+
+1. **Create a new branch** from `main`
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+2. **Make your changes** and commit regularly
+   ```bash
+   git add .
+   git commit -m "feat: add new feature"
+   ```
+
+3. **Run quality checks** before pushing
+   ```bash
+   npm run pre-commit
+   ```
+
+4. **Push your branch** and create a Pull Request
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+### Commit Message Convention
+
+Use conventional commits for clear history:
+
+- `feat:` - New features
+- `fix:` - Bug fixes
+- `docs:` - Documentation changes
+- `style:` - Code style changes (formatting, etc.)
+- `refactor:` - Code refactoring
+- `test:` - Adding or updating tests
+- `chore:` - Maintenance tasks
+
+## 📝 Content Collections Guide
+
+### Blog Posts
+
+Blog posts are stored in `src/content/blog/` and use the following frontmatter schema:
+
+```markdown
+---
+title: "Your Post Title"           # Required: Post title
+description: "Brief description"    # Required: Meta description
+pubDate: "2024-01-15"              # Required: Publication date (YYYY-MM-DD)
+updatedDate: "2024-01-20"          # Optional: Last update date
+heroImage: "../../assets/hero.jpg" # Optional: Featured image
+---
+
+Your content goes here...
+```
+
+### Content Guidelines
+
+#### Writing Style
+- Use clear, concise language
+- Write engaging headlines
+- Include relevant images with alt text
+- Use proper markdown formatting
+
+#### Image Optimization
+- Store images in `src/assets/` for optimization
+- Use descriptive filenames
+- Prefer WebP format when possible
+- Include alt text for accessibility
+
+#### SEO Best Practices
+- Write descriptive titles (50-60 characters)
+- Create compelling descriptions (150-160 characters)
+- Use heading hierarchy (H1 → H2 → H3)
+- Include internal and external links
+
+### Creating New Blog Posts
+
+1. **Create a new file** in `src/content/blog/`
+   ```bash
+   touch src/content/blog/my-new-post.md
+   ```
+
+2. **Add frontmatter** with required fields
+3. **Write your content** using Markdown or MDX
+4. **Test locally** before committing
+
+## 🎨 Code Formatting with Prettier
+
+### Prettier Configuration
+
+The project uses Prettier with these settings (`.prettierrc.json`):
+
+```json
+{
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "printWidth": 100,
+  "useTabs": false,
+  "endOfLine": "lf",
+  "arrowParens": "avoid"
+}
+```
+
+### Special Rules
+- **Astro files**: Auto-formatted with `prettier-plugin-astro`
+- **Markdown files**: 80 character line width with prose wrapping
+- **TypeScript/JavaScript**: 100 character line width
+
+### Formatting Commands
+
+```bash
+# Format all files
+npm run format
+
+# Check formatting without making changes
+npm run format:check
+
+# Format specific file
+npx prettier --write src/components/Header.astro
+```
+
+### VS Code Integration
+
+1. Install the **Prettier extension**
+2. Enable **"Format on Save"** in settings
+3. Set Prettier as default formatter
+
+## 🔧 Troubleshooting & Error Handling
+
+### Common Issues and Solutions
+
+#### 1. Pre-commit Hook Failures
+
+**Error**: `husky - pre-commit script failed (code 1)`
+
+**Solutions**:
+```bash
+# The pre-commit hook now automatically formats code,
+# but may fail on type checking issues
+
+# Check for type errors
+npm run type-check
+
+# Run full pre-commit check (includes auto-formatting)
+npm run pre-commit
+
+# Manual formatting (if needed)
+npm run format
+```
+
+#### 2. TypeScript Errors
+
+**Error**: Type checking failures
+
+**Solutions**:
+```bash
+# Run type checking
+npm run type-check
+
+# Check Astro files specifically
+npx astro check
+
+# Fix common issues:
+# - Add missing type imports
+# - Update component prop types
+# - Check frontmatter schema in content collections
+```
+
+#### 3. Build Failures
+
+**Error**: Build process fails
+
+**Debugging steps**:
+```bash
+# Clean build and reinstall
+rm -rf dist/ node_modules/
+npm install
+npm run build
+
+# Check for missing dependencies
+npm audit
+
+# Verify all imports are correct
+npm run type-check
+```
+
+#### 4. Content Collection Errors
+
+**Error**: Content schema validation failures
+
+**Solutions**:
+- Check frontmatter matches schema in `src/content.config.ts`
+- Ensure required fields are present
+- Validate date formats (`YYYY-MM-DD` or `MMM DD YYYY`)
+- Check image paths are correct
+
+#### 5. Lighthouse CI Issues
+
+**Error**: Lighthouse CI configuration problems
+
+**Solutions**:
+- Ensure `.lighthouserc.cjs` exists (not `.js`)
+- Check server starts correctly for preview
+- Verify all URLs are accessible
+- Install Chrome/Chromium if running locally
+
+### Development Tips
+
+#### Performance Optimization
+- Use Astro's built-in image optimization
+- Minimize client-side JavaScript
+- Leverage static site generation
+- Monitor Core Web Vitals
+
+#### Debugging Tools
+```bash
+# Astro development server with debug info
+DEBUG=astro:* npm run dev
+
+# TypeScript compiler with verbose output
+npx tsc --noEmit --verbose
+
+# Build analysis
+npm run build -- --verbose
+```
+
+#### Git Workflow Tips
+```bash
+# Stash changes before switching branches
+git stash
+git checkout main
+git stash pop
+
+# Interactive commit for partial changes
+git add -p
+
+# Undo last commit (keep changes)
+git reset --soft HEAD~1
+```
+
+## 🚀 Deployment
+
+The project uses GitHub Actions for automated deployment:
+
+1. **Push to `main`** triggers production deployment
+2. **Pull Requests** run quality checks and Lighthouse CI
+3. **Build artifacts** are automatically generated and stored
+
+For manual deployment:
+```bash
+npm run build
+# Deploy contents of dist/ folder
+```
+
+## 🤝 Contributing
+
+1. **Fork the repository**
+2. **Create a feature branch**
+3. **Make your changes**
+4. **Run quality checks**
+5. **Submit a Pull Request**
+
+Please ensure:
+- [ ] Code follows project formatting standards
+- [ ] TypeScript types are properly defined
+- [ ] Tests pass (when implemented)
+- [ ] Documentation is updated if needed
+- [ ] Commit messages follow conventional format
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🔗 Resources
+
+- [Astro Documentation](https://docs.astro.build)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [Content Collections Guide](https://docs.astro.build/en/guides/content-collections/)
