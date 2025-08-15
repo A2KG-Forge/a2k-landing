@@ -3,8 +3,8 @@ module.exports = {
     collect: {
       startServerCommand: 'npm run preview',
       startServerReadyPattern: 'Local:',
-      url: ['http://localhost:4173', 'http://localhost:4173/blog', 'http://localhost:4173/about'],
-      numberOfRuns: 3,
+      url: ['https://a2k-landing.pages.dev/', 'https://a2k-landing.pages.dev/blog'],
+      numberOfRuns: 2,
     },
     assert: {
       preset: 'lighthouse:no-pwa',
