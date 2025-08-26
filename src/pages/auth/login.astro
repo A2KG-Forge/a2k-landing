@@ -1,0 +1,9 @@
+---
+import LoginForm from '@/components/auth/LoginForm';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+export const prerender = false;
+---
+
+<BaseLayout>
+  <LoginForm client:load />
+</BaseLayout>
