@@ -26,6 +26,7 @@
     "@astrojs/react": "^4.3.0",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.5.0",
+    "@astrojs/vercel": "^8.2.6",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify/json": "^2.2.373",
     "@lucide/astro": "^0.539.0",

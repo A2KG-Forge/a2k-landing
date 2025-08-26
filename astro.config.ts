@@ -3,6 +3,7 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel';
 import { fileURLToPath } from 'node:url';
 
 import react from '@astrojs/react';
@@ -14,6 +15,7 @@ import astroIcon from 'astro-icon';
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
+  adapter: vercel(),
   site: 'https://example.com',
   integrations: [
     mdx(),
