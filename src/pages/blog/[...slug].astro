@@ -1,51 +1,59 @@
 ---
-import { type CollectionEntry, getCollection, render } from 'astro:content';
-import BlogPost from '@/layouts/BlogPost.astro';
+import { getCollection, render } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-  return sortedPosts.map((post, index) => {
-    const prevPost = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null;
-    const nextPost = index > 0 ? sortedPosts[index - 1] : null;
+  // Debug: Log all post IDs
+  console.log(
+    'All post IDs:',
+    posts.map(p => p.id)
+  );
 
+  return posts.map(post => {
+    console.log(`Creating path for post ID: "${post.id}"`);
     return {
       params: { slug: post.id },
-      props: {
-        ...post,
-        prevPost: prevPost
-          ? {
-              url: `/blog/${prevPost.id}/`,
-              title: prevPost.data.title,
-            }
-          : null,
-        nextPost: nextPost
-          ? {
-              url: `/blog/${nextPost.id}/`,
-              title: nextPost.data.title,
-            }
-          : null,
-      },
+      props: {},
     };
   });
 }
 
-type Props = CollectionEntry<'blog'> & {
-  prevPost?: {
-    url: string;
-    title: string;
-  };
-  nextPost?: {
-    url: string;
-    title: string;
-  };
-};
+// Fetch the post manually in the component
+const { slug } = Astro.params;
+const posts = await getCollection('blog');
 
-const { prevPost, nextPost, ...post } = Astro.props as Props;
+// Debug: Show what we're looking for vs what we have
+console.log('=== DEBUG INFO ===');
+console.log('Requested slug:', `"${slug}"`);
+console.log(
+  'Available post IDs:',
+  posts.map(p => `"${p.id}"`)
+);
+
+const post = posts.find(p => p.id === slug);
+
+if (!post) {
+  console.log('POST NOT FOUND!');
+  return Astro.redirect('/404');
+}
+
+// Calculate prev/next posts
+const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const currentIndex = sortedPosts.findIndex(p => p.id === slug);
+const prevPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : undefined;
+const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : undefined;
+
+console.log('Post found successfully:', post.id);
+
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data} prevPost={prevPost} nextPost={nextPost}>
+<BlogPost
+  post={post}
+  prevPost={prevPost ? { url: `/blog/${prevPost.id}/`, title: prevPost.data.title } : undefined}
+  nextPost={nextPost ? { url: `/blog/${nextPost.id}/`, title: nextPost.data.title } : undefined}
+>
   <Content />
 </BlogPost>

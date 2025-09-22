@@ -1,15 +1,126 @@
 ---
-
+import { Icon } from 'astro-icon/components';
 ---
 
-<section class="py-20 bg-gray-100">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-5xl font-light text-gray-800 mb-8 tracking-wide">GET IN TOUCH</h2>
+<section id="contact" class="py-16 bg-white font-atkinson">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-semibold text-[#181818] mb-2">Connect With Us</h2>
+      <p class="text-base text-gray-600 max-w-2xl mx-auto">
+        Find all the ways you can reach us below. We look forward to hearing from you.
+      </p>
+    </div>
 
-    <button
-      class="px-8 py-3 border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white transition-colors duration-300 rounded-full font-medium tracking-wide"
-    >
-      MESSAGE US
-    </button>
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Location (Large Card) -->
+      <div
+        class="bento-card group lg:col-span-2 lg:row-span-2 bg-[#282828] rounded-2xl p-6 flex flex-col"
+      >
+        <div class="flex items-center mb-4">
+          <Icon name="mdi:map-marker-outline" size={22} class="text-marigold mr-3" />
+          <h3 class="text-lg font-semibold text-white">Our Location</h3>
+        </div>
+        <p class="text-gray-300 mb-4 leading-relaxed">
+          Jose Abad Santos Ave. Brgy, Cabalantian Bacolor, Pampanga
+        </p>
+        <div class="flex-grow rounded-lg overflow-hidden border border-white/10 mt-2">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3853.903959139583!2d120.6219168758307!3d15.000780866213084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396f7e3e53e7a6b%3A0x143ea4f361a40445!2sA2K%20Group%20Inc.!5e0!3m2!1sen!2sph!4v1726650021098!5m2!1sen!2sph"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="map-iframe"
+            title="A2K Group Inc. Location Map"></iframe>
+        </div>
+      </div>
+
+      <!-- Hotline -->
+      <a href="tel:045-4050-296" class="bento-card group bg-[#282828] rounded-2xl p-6">
+        <Icon
+          name="mdi:phone-outline"
+          size={24}
+          class="text-marigold mb-3 transition-transform duration-300 group-hover:scale-110"
+        />
+        <h3 class="text-lg font-semibold text-white">Hotline</h3>
+        <p class="text-gray-300">{`045-4050-296`}</p>
+      </a>
+
+      <!-- WhatsApp -->
+      <a
+        href="https://wa.me/639278812450"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bento-card group bg-[#282828] rounded-2xl p-6"
+      >
+        <Icon
+          name="mdi:whatsapp"
+          size={24}
+          class="text-marigold mb-3 transition-transform duration-300 group-hover:scale-110"
+        />
+        <h3 class="text-lg font-semibold text-white">WhatsApp</h3>
+        <p class="text-gray-300">+63 927 881 2450</p>
+      </a>
+
+      <!-- Email -->
+      <a
+        href="mailto:info@a2kgroup.org"
+        class="bento-card group lg:col-span-2 bg-[#282828] rounded-2xl p-6 flex items-center"
+      >
+        <div
+          class="flex-shrink-0 w-12 h-12 bg-white/10 border border-white/10 rounded-lg flex items-center justify-center mr-5 transition-all duration-300 group-hover:bg-marigold"
+        >
+          <Icon
+            name="mdi:email-outline"
+            size={24}
+            class="text-marigold transition-colors duration-300 group-hover:text-black"
+          />
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-white">Email Us</h3>
+          <p class="text-gray-300">info@a2kgroup.org</p>
+        </div>
+      </a>
+
+      <!-- Business Hours -->
+      <div class="bento-card bg-marigold rounded-2xl p-6">
+        <Icon name="mdi:clock-outline" size={24} class="text-black mb-3" />
+        <h3 class="text-lg font-semibold text-black">Business Hours</h3>
+        <p class="text-black/80">Mon-Fri: 8AM - 5PM</p>
+      </div>
+    </div>
   </div>
 </section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+  .font-atkinson {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+  }
+
+  .bento-card {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  .bento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px -10px rgba(40, 40, 40, 0.2);
+  }
+  .map-iframe {
+    filter: grayscale(1) invert(0.85) contrast(0.9);
+    transition: filter 0.4s ease;
+  }
+  .bento-card:hover .map-iframe {
+    filter: grayscale(0);
+  }
+</style>
+
+<script>
+  // This script is not strictly necessary but can be used for more complex animations in the future.
+</script>

@@ -1,55 +1,262 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const today = new Date();
 ---
 
-<footer
-  class="py-8 px-4 pb-24 bg-gradient-to-b from-[rgba(var(--gray-light),0.5)] to-white text-[rgb(var(--gray))] text-center"
->
-  &copy; {today.getFullYear()} Your name here. All rights reserved.
-  <div class="social-links flex justify-center gap-4 mt-4">
-    <a
-      href="https://m.webtoo.ls/@astro"
-      target="_blank"
-      class="no-underline text-[rgb(var(--gray))] hover:text-[rgb(var(--gray-dark))]"
-    >
-      <span class="sr-only">Follow Astro on Mastodon</span>
-      <svg
-        viewBox="0 0 16 16"
-        aria-hidden="true"
-        width="32"
-        height="32"
-        astro-icon="social/mastodon"
-        ><path
-          fill="currentColor"
-          d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z"
-        ></path></svg
-      >
-    </a>
-    <a
-      href="https://twitter.com/astrodotbuild"
-      target="_blank"
-      class="no-underline text-[rgb(var(--gray))] hover:text-[rgb(var(--gray-dark))]"
-    >
-      <span class="sr-only">Follow Astro on Twitter</span>
-      <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter"
-        ><path
-          fill="currentColor"
-          d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
-        ></path></svg
-      >
-    </a>
-    <a
-      href="https://github.com/withastro/astro"
-      target="_blank"
-      class="no-underline text-[rgb(var(--gray))] hover:text-[rgb(var(--gray-dark))]"
-    >
-      <span class="sr-only">Go to Astro's GitHub repo</span>
-      <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github"
-        ><path
-          fill="currentColor"
-          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-        ></path></svg
-      >
-    </a>
+<footer class="relative bg-[#181818] text-white overflow-hidden">
+  <!-- Subtle decorative elements -->
+  <div class="absolute inset-0">
+    <div class="absolute top-0 left-0 w-full h-0.5 bg-marigold"></div>
+    <div class="absolute top-20 left-10 w-32 h-32 bg-marigold/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
   </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+      <!-- Company Info Section -->
+      <div class="lg:col-span-1">
+        <div class="mb-6">
+          <img
+            src="/logos/light-variant.svg"
+            alt="A2K Group Logo"
+            width={120}
+            class="mb-4 drop-shadow-lg"
+          />
+        </div>
+        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+          Transforming Services through Digitalization
+        </p>
+
+        <!-- Social Media -->
+        <div class="mb-6">
+          <h4 class="text-lg font-semibold text-white mb-4">Social Media</h4>
+          <div class="flex space-x-3">
+            <a
+              href="https://www.facebook.com/a2kgrouporg"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group p-3 bg-gray-800 border border-gray-700 rounded-lg hover:border-marigold/50 hover:bg-gray-700 transition-all duration-300"
+              aria-label="Follow us on Facebook"
+            >
+              <Icon
+                name="mdi:facebook"
+                size={20}
+                class="text-gray-300 group-hover:text-marigold transition-colors duration-300"
+              />
+            </a>
+            <a
+              href="https://instagram.com/a2kgrouporg"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group p-3 bg-gray-800 border border-gray-700 rounded-lg hover:border-marigold/50 hover:bg-gray-700 transition-all duration-300"
+              aria-label="Follow us on Instagram"
+            >
+              <Icon
+                name="mdi:instagram"
+                size={20}
+                class="text-gray-300 group-hover:text-marigold transition-colors duration-300"
+              />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/a2kgroup"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group p-3 bg-gray-800 border border-gray-700 rounded-lg hover:border-marigold/50 hover:bg-gray-700 transition-all duration-300"
+              aria-label="Connect with us on LinkedIn"
+            >
+              <Icon
+                name="mdi:linkedin"
+                size={20}
+                class="text-gray-300 group-hover:text-marigold transition-colors duration-300"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="lg:col-span-1">
+        <h4 class="text-lg font-semibold text-white mb-6 flex items-center">
+          <div class="w-1 h-6 bg-marigold rounded-full mr-3"></div>
+          Quick Links
+        </h4>
+        <nav class="space-y-3">
+          <a
+            href="/"
+            class="group flex items-center text-gray-300 hover:text-marigold transition-all duration-300 text-sm"
+          >
+            <Icon
+              name="mdi:chevron-right"
+              size={16}
+              class="mr-2 transform group-hover:translate-x-1 transition-transform duration-300"
+            />
+            Home
+          </a>
+          <a
+            href="/our-story"
+            class="group flex items-center text-gray-300 hover:text-marigold transition-all duration-300 text-sm"
+          >
+            <Icon
+              name="mdi:chevron-right"
+              size={16}
+              class="mr-2 transform group-hover:translate-x-1 transition-transform duration-300"
+            />
+            About Us
+          </a>
+          <a
+            href="#services"
+            class="group flex items-center text-gray-300 hover:text-marigold transition-all duration-300 text-sm"
+          >
+            <Icon
+              name="mdi:chevron-right"
+              size={16}
+              class="mr-2 transform group-hover:translate-x-1 transition-transform duration-300"
+            />
+            Services
+          </a>
+          <a
+            href="/academy"
+            class="group flex items-center text-gray-300 hover:text-marigold transition-all duration-300 text-sm"
+          >
+            <Icon
+              name="mdi:chevron-right"
+              size={16}
+              class="mr-2 transform group-hover:translate-x-1 transition-transform duration-300"
+            />
+            Academy
+          </a>
+          <a
+            href="/blog"
+            class="group flex items-center text-gray-300 hover:text-marigold transition-all duration-300 text-sm"
+          >
+            <Icon
+              name="mdi:chevron-right"
+              size={16}
+              class="mr-2 transform group-hover:translate-x-1 transition-transform duration-300"
+            />
+            News
+          </a>
+          <a
+            href="/contact"
+            class="group flex items-center text-gray-300 hover:text-marigold transition-all duration-300 text-sm"
+          >
+            <Icon
+              name="mdi:chevron-right"
+              size={16}
+              class="mr-2 transform group-hover:translate-x-1 transition-transform duration-300"
+            />
+            Contact
+          </a>
+        </nav>
+      </div>
+
+      <!-- Newsletter Subscription -->
+      <div class="lg:col-span-1">
+        <h4 class="text-lg font-semibold text-white mb-6 flex items-center">
+          <div class="w-1 h-6 bg-marigold rounded-full mr-3"></div>
+          E-mail Subscription
+        </h4>
+        <p class="text-gray-300 text-sm mb-6 leading-relaxed">
+          Get the latest updates on tech products, courses, workshops, internship opportunities and
+          services.
+        </p>
+
+        <form class="space-y-4" action="#" method="POST">
+          <div class="relative">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              required
+              class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-marigold/50 focus:border-marigold transition-all duration-300"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-marigold hover:bg-marigold/90 text-[#181818] font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center group"
+          >
+            <span>Subscribe</span>
+            <Icon
+              name="mdi:send"
+              size={16}
+              class="ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
+            />
+          </button>
+        </form>
+      </div>
+
+      <!-- Compliance Section -->
+      <div class="lg:col-span-1">
+        <h4 class="text-lg font-semibold text-white mb-6 flex items-center">
+          <div class="w-1 h-6 bg-marigold rounded-full mr-3"></div>
+          In Compliance with:
+        </h4>
+
+        <div class="space-y-4">
+          <div
+            class="flex items-center space-x-3 p-4 bg-gray-800/50 border border-gray-700 rounded-lg"
+          >
+            <div class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center">
+              <Icon name="mdi:shield-check" size={24} class="text-marigold" />
+            </div>
+            <div>
+              <div class="text-sm font-medium text-white">ISO Certified</div>
+              <div class="text-xs text-gray-400">Quality Management</div>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center space-x-3 p-4 bg-gray-800/50 border border-gray-700 rounded-lg"
+          >
+            <div class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center">
+              <Icon name="mdi:security" size={24} class="text-marigold" />
+            </div>
+            <div>
+              <div class="text-sm font-medium text-white">Data Privacy</div>
+              <div class="text-xs text-gray-400">Commission Compliant</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="border-t border-gray-700 mt-12 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div class="text-center md:text-left">
+          <p class="text-gray-300 text-sm">
+            &copy; {today.getFullYear()} A2K Group Corporation. All rights reserved.
+          </p>
+          <p class="text-gray-400 text-xs mt-1">Transforming Services through Digitalization</p>
+        </div>
+
+        <div
+          class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm"
+        >
+          <a
+            href="/privacy-policy"
+            class="text-gray-300 hover:text-marigold transition-colors duration-300"
+          >
+            Privacy Policy
+          </a>
+          <a
+            href="/terms-of-service"
+            class="text-gray-300 hover:text-marigold transition-colors duration-300"
+          >
+            Terms of Service
+          </a>
+          <a
+            href="/sitemap"
+            class="text-gray-300 hover:text-marigold transition-colors duration-300"
+          >
+            Sitemap
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom decorative element -->
+  <div class="absolute bottom-0 left-0 w-full h-0.5 bg-marigold"></div>
 </footer>

@@ -3,7 +3,7 @@ title: 'Markdown Style Guide'
 description:
   'Here is a sample of some basic Markdown syntax that can be used when writing
   Markdown content in Astro.'
-pubDate: 'Jun 19 2024'
+pubDate: 2025-09-22
 heroImage: '../../assets/blog-placeholder-1.jpg'
 ---
 
@@ -66,14 +66,14 @@ and optionally with in-line changes such as annotations and abbreviations.
 #### Syntax
 
 ```markdown
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
-> **Note** that you can use _Markdown syntax_ within a blockquote.
+> Tiam, ad mint andaepu dandae nostion secatur sequo quae. **Note** that you can
+> use _Markdown syntax_ within a blockquote.
 ```
 
 #### Output
 
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
-> **Note** that you can use _Markdown syntax_ within a blockquote.
+> Tiam, ad mint andaepu dandae nostion secatur sequo quae. **Note** that you can
+> use _Markdown syntax_ within a blockquote.
 
 ### Blockquote with attribution
 
