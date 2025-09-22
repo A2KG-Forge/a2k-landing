@@ -121,6 +121,7 @@ export default tseslint.config(
       'package-lock.json',
       'yarn.lock',
       'pnpm-lock.yaml',
+      '.vercel/',
     ],
   }
 );
